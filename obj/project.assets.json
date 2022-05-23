@@ -1171,11 +1171,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\GestionEmploye\\GestionEmploye.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\GestionEmploye\\GestionEmploye.csproj",
       "projectName": "GestionEmploye",
-      "projectPath": "C:\\Users\\ASUS\\GestionEmploye\\GestionEmploye.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Desktop\\GestionEmploye\\GestionEmploye.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\GestionEmploye\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Desktop\\GestionEmploye\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
