@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\GestionEmploye\\GestionEmploye.csproj": {}
+    "C:\\Users\\ragragui\\OneDrive\\Desktop\\.net\\GestionEmploye\\GestionEmploye.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\GestionEmploye\\GestionEmploye.csproj": {
+    "C:\\Users\\ragragui\\OneDrive\\Desktop\\.net\\GestionEmploye\\GestionEmploye.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\GestionEmploye\\GestionEmploye.csproj",
+        "projectUniqueName": "C:\\Users\\ragragui\\OneDrive\\Desktop\\.net\\GestionEmploye\\GestionEmploye.csproj",
         "projectName": "GestionEmploye",
-        "projectPath": "C:\\Users\\ASUS\\GestionEmploye\\GestionEmploye.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\GestionEmploye\\obj\\",
+        "projectPath": "C:\\Users\\ragragui\\OneDrive\\Desktop\\.net\\GestionEmploye\\GestionEmploye.csproj",
+        "packagesPath": "C:\\Users\\ragragui\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ragragui\\OneDrive\\Desktop\\.net\\GestionEmploye\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ragragui\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +44,16 @@
               "target": "Package",
               "version": "[6.0.5, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[6.0.5, )"
@@ -51,6 +61,10 @@
             "Microsoft.EntityFrameworkCore.tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.5, )"
             }
@@ -73,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
