@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GestionEmploye.Models
 {
-    public class Employe
+    public class Admin
     {
         public int Id { get; set; }
 
