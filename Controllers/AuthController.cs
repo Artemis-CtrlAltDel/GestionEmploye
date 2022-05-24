@@ -26,11 +26,26 @@ namespace GestionEmploye.Controllers
             return View();
         }
 
-        // [HttpPost("/login/{*type}")]
-        // public IActionResult Login(string type) {
+        [HttpPost("/login/{*type}")]
+        public async Task<IActionResult> Login(string type,[Bind("Email,Password")]Person person) {
 
-        //     return View();
-        // }
+            if(type == "admin"){
+                var result =  _context.Admin.Include(m => m.Person.Email == person.Email).ToList();
+                if(result.Count == 0) return View();
+                if(result[0].Person.Password != person.Password) return View();
+                HttpContext.Session.SetInt32("PersonId",result[0].PersonId);
+                HttpContext.Session.SetInt32("Admin",1);
+                Redirect("/");
+            }
+
+            var result1 =  _context.Employe.Include(m => m.Person.Email == person.Email).ToList();
+            if(result1.Count == 0) return View();
+            if(result1[0].Person.Password != person.Password) return View();
+            HttpContext.Session.SetInt32("PersonId",result1[0].PersonId);
+            HttpContext.Session.SetInt32("Admin",0);
+            Redirect("/");
+            return View();
+        }
 
 
         // todo: remove this after finishing debuging

@@ -20,9 +20,9 @@ namespace GestionEmploye.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public int EmployeId { get; set; }
+        public int? EmployeId { get; set; }
         public Employe Employe { get; set; }
-        public int AdminId { get; set; }
+        public int? AdminId { get; set; }
         public Admin Admin { get; set; }
     }
 }
