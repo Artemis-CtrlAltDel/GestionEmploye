@@ -1,0 +1,55 @@
+body {
+    background-color: #f9f9f9;
+}
+
+.admin-card {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    border-radius: .4rem;
+    flex:1;
+}
+
+.admin-card h2 {
+    font-weight: 300;
+    color: #4f4f4f;
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+
+.admin-card .value {
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.admin-card .icon {
+    --color: 13,110,253;
+    background-color: rgb(var(--color));
+    box-shadow: 0 0 0 0.4rem rgba(var(--color),.1);
+    padding: .8rem
+}
+
+.admin-card svg {
+    width: 30px;
+    aspect-ratio: 1;
+}
+
+.card{
+    border: none;
+}
+
+.list{
+    margin-top: 3.0em;
+    background-color: transparent;
+}
+.paie-list,
+.conge-list,
+.employe-list {
+    background-color: white;
+    border-radius: 10px;
+}
+.admin-tables{
+    background-color: white;
+}

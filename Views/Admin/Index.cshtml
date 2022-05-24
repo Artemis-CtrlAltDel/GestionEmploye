@@ -1,42 +1,4 @@
-<style>
-    body {
-        background-color: #f9f9f9;
-    }
-
-    .admin-card {
-        background-color: #fff;
-        display: flex;
-        align-items: center;
-        gap: 1.3rem;
-        border-radius: .4rem;
-        flex:1;
-    }
-
-    .admin-card h2 {
-        font-weight: 300;
-        color: #4f4f4f;
-        font-size: 1.4rem;
-        white-space: nowrap;
-    }
-
-    .admin-card .value {
-        font-weight: 500;
-        font-size: 1.5rem;
-        margin: 0;
-    }
-
-    .admin-card .icon {
-        --color: 13,110,253;
-        background-color: rgb(var(--color));
-        box-shadow: 0 0 0 0.4rem rgba(var(--color),.1);
-        padding: .8rem
-    }
-
-    .admin-card svg {
-        width: 30px;
-        aspect-ratio: 1;
-    }
-</style>
+<link href="@Url.Content("~/css/admin.css")" rel="stylesheet" type="text/css" />
 
 <h2>Dashboard</h2>
 <div class="d-flex gap-3 flex-wrap">
@@ -103,6 +65,78 @@
 
 
 </div>
-<h2>Gestion des Demandes de Conge</h2>
 
-<h2>Gestion des Paies</h2>
+<div class="list card">
+    <h3 class="card-title">Liste des Employés</h3>
+    <div class="employe-list card-body">
+        <table class="admin-tables table table-hover">
+            <thead>
+            <tr>
+                <td scope="col">ID</td>
+                <td scope="col">Nom</td>
+                <td scope="col">Prenom</td>
+                <td scope="col">Email</td>
+            </tr>
+            </thead>
+            
+            <tbody>
+            <tr>
+                <td scope="row">bruh</td>
+                <td>bruh</td>
+                <td>bruh</td>
+                <td>bruh</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="list card">
+    <h3 class="card-title">Liste des Congés </h3>
+    <div class="conge-list card-body">
+        <table class="admin-tables table table-hover">
+            <thead>
+                        <tr>
+                            <td scope="col">#</td>
+                            <td scope="col">Nom</td>
+                            <td scope="col">Prenom</td>
+                            <td scope="col">Email</td>
+                        </tr>
+                        </thead>
+                        
+                        <tbody>
+                        <tr>
+                            <td scope="row">bruh</td>
+                            <td>bruh</td>
+                            <td>bruh</td>
+                            <td>bruh</td>
+                        </tr>
+                        </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="list card">
+    <h2 class="card-title">Liste des Paies</h2>
+    <div class="paie-list card-body">
+        <table class="admin-tables table table-hover">
+            <thead>
+                        <tr>
+                            <td scope="col">ID</td>
+                            <td scope="col">Nom</td>
+                            <td scope="col">Prenom</td>
+                            <td scope="col">Email</td>
+                        </tr>
+                        </thead>
+                        
+                        <tbody>
+                        <tr>
+                            <td scope="row">bruh</td>
+                            <td>bruh</td>
+                            <td>bruh</td>
+                            <td>bruh</td>
+                        </tr>
+                        </tbody>
+        </table>
+    </div>
+</div>

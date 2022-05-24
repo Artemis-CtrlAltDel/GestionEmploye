@@ -12,11 +12,11 @@ namespace GestionEmploye.Models
         [Required]
         public string Prenom { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Le champs Email doit etre remplis")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Le champs Mot de passe doit etre remplis")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

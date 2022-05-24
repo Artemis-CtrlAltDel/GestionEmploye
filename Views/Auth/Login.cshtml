@@ -4,6 +4,8 @@
     ViewData["Title"] = "Login";
 }
 
+<link href="@Url.Content("~/css/login.css")" rel="stylesheet" type="text/css" />
+
 <div class="card">
     <div class="card-body">
         <h1 class="card-title">Form de connexion</h1>
@@ -11,7 +13,6 @@
     <form asp-controller="Auth" asp-action="Login" class="card-body">
         <span class="label input-group-text" id="basic-addon1">
             Email
-            
         </span>
         <div class="input-wrapper input-group mb-3">
             <!-- TODO -->
