@@ -12,5 +12,20 @@ using GestionEmploye.Models;
         {
         }
 
-        public DbSet<GestionEmploye.Models.Employe>? Employe { get; set; }
-    }
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+            modelBuilder.Entity<Employe>()
+            .HasOne(b => b.Person)
+            .WithOne(i => i.Employe)
+            .HasForeignKey<Person>(b => b.EmployeId);
+            
+            modelBuilder.Entity<Admin>()
+            .HasOne(b => b.Person)
+            .WithOne(i => i.Admin)
+            .HasForeignKey<Person>(b => b.EmployeId);
+        }
+
+        public DbSet<Employe> Employe { get; set; }
+        public DbSet<Person> Person { get; set; }
+        public DbSet<Admin> Admin { get; set; }
+        
+}

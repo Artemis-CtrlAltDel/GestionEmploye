@@ -20,14 +20,15 @@ namespace GestionEmploye.Controllers
 
 
         [HttpGet("/login/{*type}")]
-        public IActionResult Login(string type) {
-            
+        public IActionResult Login(string type)
+        {
+
             return View();
         }
-        
+
         // [HttpPost("/login/{*type}")]
         // public IActionResult Login(string type) {
-            
+
         //     return View();
         // }
 
@@ -39,36 +40,38 @@ namespace GestionEmploye.Controllers
         //      \/
 
 
-
         // GET: Auth
         public async Task<IActionResult> Index()
         {
-              return _context.Employe != null ? 
-                          View(await _context.Employe.ToListAsync()) :
-                          Problem("Entity set 'AppContext.Employe'  is null.");
+            var appContext = _context.Person.Include(p => p.Admin).Include(p => p.Employe);
+            return View(await appContext.ToListAsync());
         }
 
         // GET: Auth/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Employe == null)
+            if (id == null || _context.Person == null)
             {
                 return NotFound();
             }
 
-            var employe = await _context.Employe
+            var person = await _context.Person
+                .Include(p => p.Admin)
+                .Include(p => p.Employe)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (employe == null)
+            if (person == null)
             {
                 return NotFound();
             }
 
-            return View(employe);
+            return View(person);
         }
 
         // GET: Auth/Create
         public IActionResult Create()
         {
+            ViewData["EmployeId"] = new SelectList(_context.Admin, "Id", "Id");
+            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id");
             return View();
         }
 
@@ -77,31 +80,35 @@ namespace GestionEmploye.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nom,Prenom")] Employe employe)
+        public async Task<IActionResult> Create([Bind("Id,Nom,Prenom,Email,Password,EmployeId,AdminId")] Person person)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(employe);
+                _context.Add(person);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(employe);
+            ViewData["EmployeId"] = new SelectList(_context.Admin, "Id", "Id", person.EmployeId);
+            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id", person.EmployeId);
+            return View(person);
         }
 
         // GET: Auth/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Employe == null)
+            if (id == null || _context.Person == null)
             {
                 return NotFound();
             }
 
-            var employe = await _context.Employe.FindAsync(id);
-            if (employe == null)
+            var person = await _context.Person.FindAsync(id);
+            if (person == null)
             {
                 return NotFound();
             }
-            return View(employe);
+            ViewData["EmployeId"] = new SelectList(_context.Admin, "Id", "Id", person.EmployeId);
+            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id", person.EmployeId);
+            return View(person);
         }
 
         // POST: Auth/Edit/5
@@ -109,9 +116,9 @@ namespace GestionEmploye.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nom,Prenom")] Employe employe)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nom,Prenom,Email,Password,EmployeId,AdminId")] Person person)
         {
-            if (id != employe.Id)
+            if (id != person.Id)
             {
                 return NotFound();
             }
@@ -120,12 +127,12 @@ namespace GestionEmploye.Controllers
             {
                 try
                 {
-                    _context.Update(employe);
+                    _context.Update(person);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeExists(employe.Id))
+                    if (!PersonExists(person.Id))
                     {
                         return NotFound();
                     }
@@ -136,25 +143,29 @@ namespace GestionEmploye.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(employe);
+            ViewData["EmployeId"] = new SelectList(_context.Admin, "Id", "Id", person.EmployeId);
+            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id", person.EmployeId);
+            return View(person);
         }
 
         // GET: Auth/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Employe == null)
+            if (id == null || _context.Person == null)
             {
                 return NotFound();
             }
 
-            var employe = await _context.Employe
+            var person = await _context.Person
+                .Include(p => p.Admin)
+                .Include(p => p.Employe)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (employe == null)
+            if (person == null)
             {
                 return NotFound();
             }
 
-            return View(employe);
+            return View(person);
         }
 
         // POST: Auth/Delete/5
@@ -162,23 +173,23 @@ namespace GestionEmploye.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Employe == null)
+            if (_context.Person == null)
             {
-                return Problem("Entity set 'AppContext.Employe'  is null.");
+                return Problem("Entity set 'AppContext.Person'  is null.");
             }
-            var employe = await _context.Employe.FindAsync(id);
-            if (employe != null)
+            var person = await _context.Person.FindAsync(id);
+            if (person != null)
             {
-                _context.Employe.Remove(employe);
+                _context.Person.Remove(person);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EmployeExists(int id)
+        private bool PersonExists(int id)
         {
-          return (_context.Employe?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Person?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
