@@ -27,21 +27,39 @@ namespace GestionEmploye.Controllers
         }
 
         [HttpPost("/login/{*type}")]
-        public async Task<IActionResult> Login(string type,[Bind("Email,Password")]Person person) {
-            if(type == "admin"){
+        public async Task<IActionResult> Login(string type, [Bind("Email,Password")] Person person)
+        {
+            if (type == "admin")
+            {
                 var result = await _context.Admin.Include(nameof(Admin.Person)).FirstOrDefaultAsync(m => m.Person.Email == person.Email);
-                if(result == null) return View();
-                if(result.Person.Password != person.Password) return View();
-                HttpContext.Session.SetInt32("PersonId",result.PersonId);
-                HttpContext.Session.SetInt32("Admin",1);
+                if (result == null)
+                {
+                    ModelState.AddModelError("Email", "Email not found!");
+                    return View();
+                }
+                if (result.Person.Password != person.Password)
+                {
+                    ModelState.AddModelError("Password", "Wrong password!");
+                    return View();
+                }
+                HttpContext.Session.SetInt32("PersonId", result.PersonId);
+                HttpContext.Session.SetInt32("Admin", 1);
                 Redirect("/");
             }
 
             var result1 = await _context.Employe.Include(nameof(Employe.Person)).FirstOrDefaultAsync(m => m.Person.Email == person.Email);
-            if(result1 == null) return View();
-            if(result1.Person.Password != person.Password) return View();
-            HttpContext.Session.SetInt32("PersonId",result1.PersonId);
-            HttpContext.Session.SetInt32("Admin",0);
+            if (result1 == null)
+            {
+                ModelState.AddModelError("Email", "Email not found!");
+                return View();
+            }
+            if (result1.Person.Password != person.Password)
+            {
+                ModelState.AddModelError("Password", "Wrong password!");
+                return View();
+            }
+            HttpContext.Session.SetInt32("PersonId", result1.PersonId);
+            HttpContext.Session.SetInt32("Admin", 0);
             return Redirect("/");
         }
 
@@ -195,14 +213,14 @@ namespace GestionEmploye.Controllers
             {
                 _context.Person.Remove(person);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PersonExists(int id)
         {
-          return (_context.Person?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Person?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
