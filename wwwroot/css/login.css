@@ -1,0 +1,52 @@
+.label{
+    width: 8em;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+.submit, .label{
+    font-weight: bold;
+}
+
+.submit{
+    margin-top: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+.submit:hover{
+    animation: pulsate 1s ease-in-out;
+}
+@keyframes pulsate {
+    0%{
+        box-shadow: 0 0 20px rgba(112, 161, 255, 0.5),
+                    0 0 35px rgb(30, 144, 255);
+    }
+}
+
+.label, .form-control{
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+}
+
+.input-wrapper{
+    
+}
+
+.input-wrapper>.col>input{
+    background-color: rgba(211, 211, 211, 0.15);
+    border: 2px solid rgba(11, 94, 216, 0.5);
+    width: 100%;
+}
+
+input{
+    padding: 1.2em 0;
+}
+
+.alert{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    align-self: center;
+}

@@ -1,0 +1,4 @@
+root{
+    --primary-color: #1094da;
+    --primary-border: 2px solid var(--primary-color);
+}
