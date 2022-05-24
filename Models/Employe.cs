@@ -18,6 +18,11 @@ namespace GestionEmploye.Models
         [Range(0,30)]
         public int CongeRemaining { get; set; }
 
+        
+        public float CurrentSalary { get; set; }
+
         public ICollection<Conge> Conges { get; set; }
+        
+        public ICollection<Salary> Salaries { get; set; }
     }
 }

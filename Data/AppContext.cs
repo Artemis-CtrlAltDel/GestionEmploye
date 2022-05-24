@@ -29,9 +29,17 @@ public class AppContext : DbContext
             .HasOne(b => b.Employe)
             .WithMany(i => i.Conges)
             .HasForeignKey(b => b.EmployeId);
-            
+
         conge.Property(b => b.DemandeTime)
         .HasDefaultValueSql("datetime()");
+
+        var salary = modelBuilder.Entity<Salary>();
+        salary
+        .HasOne(b => b.Employe)
+        .WithMany(i => i.Salaries)
+        .HasForeignKey(b => b.EmployeId);
+
+        
     }
 
     public DbSet<Employe> Employe { get; set; }
