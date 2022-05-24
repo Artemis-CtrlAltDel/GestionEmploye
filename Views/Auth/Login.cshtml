@@ -1,9 +1,38 @@
-@* @model Employe
+@model Person
 
 @{
     ViewData["Title"] = "Login";
 }
 
-<form>
-    @Html.TextBoxFor(m => m.Nom)
-</form> *@
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Form de connexion</h1>
+        <hr class="sep card-subtitle"/>
+    </div>
+    <form asp-controller="Auth" asp-action="Login" class="card-body">
+        <div class="input-wrapper input-group mb-3">
+            <span class="label input-group-text" id="basic-addon1">
+                Email
+            </span>
+
+            <!-- TODO -->
+
+            <input asp-for="Email" type="text" class="form-control" placeholder="Entrer votre Email | eg : prenom.nom@xyz.com" aria-label="email" aria-describedby="basic-addon1"/>
+        </div>
+
+        <div class="input-wrapper input-group mb-3">
+            <span class="label input-group-text" id="basic-addon2">
+                Mot de passe
+            </span>
+
+            <!-- TODO -->
+
+            <input asp-for="Password" type="password" class="form-control" placeholder="Entrer votre Mot de passe" aria-label="prenom" aria-describedby="basic-addon2"/>
+
+        </div>
+
+        <div class="input-group mb-3" style="width: 100%;margin-top: 30px">
+            <input type="submit" value="Se connecter" class="form-control btn btn-primary" style="width: 100%"/>
+        </div>
+    </form>
+</div>
