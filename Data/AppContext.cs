@@ -28,4 +28,4 @@ using GestionEmploye.Models;
         public DbSet<Person> Person { get; set; }
         public DbSet<Admin> Admin { get; set; }
         
-    }
+}
