@@ -28,23 +28,21 @@ namespace GestionEmploye.Controllers
 
         [HttpPost("/login/{*type}")]
         public async Task<IActionResult> Login(string type,[Bind("Email,Password")]Person person) {
-
             if(type == "admin"){
-                var result =  _context.Admin.Include(m => m.Person.Email == person.Email).ToList();
-                if(result.Count == 0) return View();
-                if(result[0].Person.Password != person.Password) return View();
-                HttpContext.Session.SetInt32("PersonId",result[0].PersonId);
+                var result = await _context.Admin.Include(nameof(Admin.Person)).FirstOrDefaultAsync(m => m.Person.Email == person.Email);
+                if(result == null) return View();
+                if(result.Person.Password != person.Password) return View();
+                HttpContext.Session.SetInt32("PersonId",result.PersonId);
                 HttpContext.Session.SetInt32("Admin",1);
                 Redirect("/");
             }
 
-            var result1 =  _context.Employe.Include(m => m.Person.Email == person.Email).ToList();
-            if(result1.Count == 0) return View();
-            if(result1[0].Person.Password != person.Password) return View();
-            HttpContext.Session.SetInt32("PersonId",result1[0].PersonId);
+            var result1 = await _context.Employe.Include(nameof(Employe.Person)).FirstOrDefaultAsync(m => m.Person.Email == person.Email);
+            if(result1 == null) return View();
+            if(result1.Person.Password != person.Password) return View();
+            HttpContext.Session.SetInt32("PersonId",result1.PersonId);
             HttpContext.Session.SetInt32("Admin",0);
-            Redirect("/");
-            return View();
+            return Redirect("/");
         }
 
 

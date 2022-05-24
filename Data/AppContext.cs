@@ -21,7 +21,7 @@ using GestionEmploye.Models;
             modelBuilder.Entity<Admin>()
             .HasOne(b => b.Person)
             .WithOne(i => i.Admin)
-            .HasForeignKey<Person>(b => b.EmployeId);
+            .HasForeignKey<Person>(b => b.AdminId);
         }
 
         public DbSet<Employe> Employe { get; set; }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestionEmploye.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20220524134039_RemoveNullConstraint")]
+    partial class RemoveNullConstraint
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -74,9 +76,6 @@ namespace GestionEmploye.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdminId")
-                        .IsUnique();
-
                     b.HasIndex("EmployeId")
                         .IsUnique();
 
@@ -87,7 +86,7 @@ namespace GestionEmploye.Migrations
                 {
                     b.HasOne("GestionEmploye.Models.Admin", "Admin")
                         .WithOne("Person")
-                        .HasForeignKey("GestionEmploye.Models.Person", "AdminId");
+                        .HasForeignKey("GestionEmploye.Models.Person", "EmployeId");
 
                     b.HasOne("GestionEmploye.Models.Employe", "Employe")
                         .WithOne("Person")
