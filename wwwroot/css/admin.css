@@ -42,8 +42,8 @@ body {
     border-radius: 12px;
     border-left-color: var(--b-color);
     border-left-width: 5px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 .card-title{
     color: var(--b-color);
@@ -73,4 +73,25 @@ th{
     background-color: var(--b-color);
     opacity: 1;
     border-radius: 5ch;
+}
+
+.admin-tables :is(td , th){
+    padding-block: 20px;
+}
+
+/*.admin-tables > tbody > * > *{*/
+/*    --sep-color: #c4c4c4;*/
+/*    border-bottom: 1px solid var(--sep-color);*/
+/*}*/
+
+.status{
+    border: 1px solid black;
+}
+
+.table>:not(:last-child)>:last-child>* {
+    border-bottom-color: transparent;
+}
+
+.table>:not(caption)>> {
+    border-bottom-width: 0;
 }
