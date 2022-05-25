@@ -47,5 +47,6 @@ public class AppContext : DbContext
     public DbSet<Admin> Admin { get; set; }
 
     public DbSet<Conge> Conge { get; set; }
+    public DbSet<Salary> Salary { get; set; }
 
 }
