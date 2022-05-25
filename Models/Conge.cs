@@ -26,7 +26,6 @@ namespace GestionEmploye.Models
         [Required]
         public int EmployeId {get; set;}
 
-        [Required]
         public Employe Employe {get; set;}
 
     }

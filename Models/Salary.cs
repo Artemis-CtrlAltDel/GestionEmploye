@@ -10,11 +10,8 @@ namespace GestionEmploye.Models
         public float Amount { get; set; }
 
         [Required]
-        [Range(0,11)]
-        public int Month { get; set; }
-
-        [Required]
-        public int Year { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Month { get; set; }
 
         [Required]
         [RegularExpression("Pending|Paid", ErrorMessage = "Invalid Status")]
@@ -24,7 +21,6 @@ namespace GestionEmploye.Models
         [Required]
         public int EmployeId {get; set;}
 
-        [Required]
         public Employe Employe {get; set;}
 
     }
