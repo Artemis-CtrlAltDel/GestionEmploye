@@ -22,7 +22,6 @@ namespace GestionEmploye.Controllers
         [HttpGet("/login/{*type}")]
         public IActionResult Login(string type)
         {
-
             return View();
         }
 
@@ -43,6 +42,8 @@ namespace GestionEmploye.Controllers
                     return View();
                 }
                 HttpContext.Session.SetInt32("PersonId", result.PersonId);
+                HttpContext.Session.SetString("Nom", result.Person.Nom);
+                HttpContext.Session.SetString("Prenom", result.Person.Prenom);
                 HttpContext.Session.SetInt32("Admin", 1);
                 Redirect("/");
             }
@@ -59,6 +60,8 @@ namespace GestionEmploye.Controllers
                 return View();
             }
             HttpContext.Session.SetInt32("PersonId", result1.PersonId);
+            HttpContext.Session.SetString("Nom", result1.Person.Nom);
+            HttpContext.Session.SetString("Prenom", result1.Person.Prenom);
             HttpContext.Session.SetInt32("Admin", 0);
             return Redirect("/");
         }

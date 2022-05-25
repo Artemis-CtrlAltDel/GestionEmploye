@@ -1,10 +1,12 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using GestionEmploye.Models;
 using Microsoft.EntityFrameworkCore;
+using GestionEmploye.Helpers;
 
 namespace GestionEmploye.Controllers;
 
+
+[AuthorizationFilter("Admin")]
 public class AdminController : Controller
 {
     private readonly AppContext _context;
@@ -13,7 +15,6 @@ public class AdminController : Controller
     {
         _context = context;
     }
-
 
     public IActionResult Index() {
         ViewData["TotalEmployees"] = _context.Employe.Count();
