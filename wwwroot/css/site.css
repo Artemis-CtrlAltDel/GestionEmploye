@@ -28,3 +28,20 @@ body {
   color: white;
   background-color: #0d6efd33;
 }
+
+.status{
+  --status-color: 0, 210, 211;
+  width: 12ch;
+  border-radius: 20px;
+  background-color: rgba(var(--status-color), 5%);
+  
+  /*font-weight: bold;*/
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+.status-icons{
+  float: left;
+  margin-right: 10px;
+}

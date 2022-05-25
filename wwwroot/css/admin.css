@@ -84,9 +84,6 @@ th{
 /*    border-bottom: 1px solid var(--sep-color);*/
 /*}*/
 
-.status{
-    border: 1px solid black;
-}
 
 .table>:not(:last-child)>:last-child>* {
     border-bottom-color: transparent;
