@@ -1,5 +1,7 @@
 @model IEnumerable<GestionEmploye.Models.Employe>
 
+<link href="@Url.Content("~/css/employe.css")" rel="stylesheet" type="text/css" />
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -9,39 +11,41 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+@if (((List<Employe>) ViewBag.Employees).Count != 0)
+{
+    <table class="admin-tables table table-hover">
+        <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PersonId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CongeRemaining)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CurrentSalary)
-            </th>
-            <th></th>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Durée congé</th>
+            <th scope="col">Montant salaire</th>
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PersonId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CongeRemaining)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentSalary)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+        </thead>
+
+        <tbody>
+        @foreach (var employe in (List<Employe>) ViewData["Employees"])
+        {
+            <tr>
+                <th scope="row">@employe.PersonId</th>
+                <td>@employe.Person.Nom</td>
+                <td>@employe.Person.Prenom</td>
+                <td>@employe.Person.Email</td>
+                <td>@employe.CongeRemaining</td>
+                <td>@employe.CurrentSalary</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@employe.PersonId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@employe.PersonId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@employe.PersonId">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
 }
-    </tbody>
-</table>
+else
+{
+    <p><pre class="fw-bold fs-5">Rien à afficher ici -</pre></p>
+}

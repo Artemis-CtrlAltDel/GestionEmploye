@@ -1,0 +1,11 @@
+.table>:not(:last-child)>:last-child>* {
+    border-bottom-color: transparent;
+}
+
+.table>:not(caption)>> {
+    border-bottom-width: 0;
+}
+
+.admin-tables :is(td , th){
+    padding-block: 20px;
+}
