@@ -38,7 +38,7 @@
             </svg>
         </div>
         <div>
-            <h2>Total Employees</h2>
+            <h2>Total des demandes de congés</h2>
             <p class="value">@ViewData["TotalEmployees"]</p>
         </div>
     </div>
@@ -67,21 +67,28 @@
 </div>
 
 <div class="list card">
-    <h3 class="card-title">Liste des Employés</h3>
+    <div class="card-body">
+            <h2 class="card-title">Liste des Employés</h2>
+            <hr class="sep"/>
+        </div>
     <div class="employe-list card-body">
         <table class="admin-tables table table-hover">
             <thead>
             <tr>
-                <td scope="col">ID</td>
-                <td scope="col">Nom</td>
-                <td scope="col">Prenom</td>
-                <td scope="col">Email</td>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Avoir congé</th>
+                <th scope="col">Salaire</th>
             </tr>
             </thead>
             
             <tbody>
             <tr>
-                <td scope="row">bruh</td>
+                <th scope="row">bruh</th>
+                <td>bruh</td>
+                <td>bruh</td>
                 <td>bruh</td>
                 <td>bruh</td>
                 <td>bruh</td>
@@ -91,47 +98,98 @@
     </div>
 </div>
 
-<div class="list card">
-    <h3 class="card-title">Liste des Congés </h3>
-    <div class="conge-list card-body">
-        <table class="admin-tables table table-hover">
-            <thead>
-                        <tr>
-                            <td scope="col">#</td>
-                            <td scope="col">Nom</td>
-                            <td scope="col">Prenom</td>
-                            <td scope="col">Email</td>
-                        </tr>
-                        </thead>
-                        
-                        <tbody>
-                        <tr>
-                            <td scope="row">bruh</td>
-                            <td>bruh</td>
-                            <td>bruh</td>
-                            <td>bruh</td>
-                        </tr>
-                        </tbody>
-        </table>
+<div class="card" style="margin-top: 3.0em;background-color: transparent">
+    <div class="card-body">
+        <h2 class="card-title">Liste des Congés</h2>
+        <hr class="sep"/>
+    </div>
+
+    <div class="list card-body">
+        <h4 class="card-subtitle"><strong>En demande</strong></h4>
+        <div class="conge-list card-body">
+            <table class="admin-tables table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id d'employé</th>
+                    <th scope="col">Nom d'employé</th>
+                    <th scope="col">Prenom d'employé</th>
+                    <th scope="col">Durée</th>
+                    <th scope="col">Début de congé</th>
+                    <th scope="col">Temps restant</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <th scope="row">bruh</th>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="list card-body">
+        <h4 class="card-subtitle"><strong>En cours</strong></h4>
+        <div class="conge-list card-body">
+            <table class="admin-tables table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id d'employé</th>
+                    <th scope="col">Nom d'employé</th>
+                    <th scope="col">Prenom d'employé</th>
+                    <th scope="col">Durée</th>
+                    <th scope="col">Début de congé</th>
+                    <th scope="col">Temps restant</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <th scope="row">bruh</th>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                    <td>bruh</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
 <div class="list card">
-    <h2 class="card-title">Liste des Paies</h2>
+    <div class="card-body">
+            <h2 class="card-title">Liste des Paiements</h2>
+            <hr class="sep"/>
+        </div>
     <div class="paie-list card-body">
         <table class="admin-tables table table-hover">
             <thead>
                         <tr>
-                            <td scope="col">ID</td>
-                            <td scope="col">Nom</td>
-                            <td scope="col">Prenom</td>
-                            <td scope="col">Email</td>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prenom</th>
+                            <th scope="col">Email</th>
                         </tr>
                         </thead>
                         
                         <tbody>
                         <tr>
-                            <td scope="row">bruh</td>
+                            <th scope="row">bruh</th>
                             <td>bruh</td>
                             <td>bruh</td>
                             <td>bruh</td>

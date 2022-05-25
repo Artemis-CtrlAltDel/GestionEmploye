@@ -37,7 +37,16 @@ body {
 }
 
 .card{
-    border: none;
+    --b-color: #1094da;
+    padding: 1.3em;
+    border-radius: 12px;
+    border-left-color: var(--b-color);
+    border-left-width: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.card-title{
+    color: var(--b-color);
 }
 
 .list{
@@ -52,4 +61,16 @@ body {
 }
 .admin-tables{
     background-color: white;
+}
+
+th{
+    white-space: nowrap;
+}
+
+.sep{
+    width: 6ch;
+    padding: 1.5px 0;
+    background-color: var(--b-color);
+    opacity: 1;
+    border-radius: 5ch;
 }
