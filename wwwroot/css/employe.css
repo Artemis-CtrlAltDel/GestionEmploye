@@ -20,7 +20,8 @@ td, th{
 }
 .icon-wrapper{
     display: flex;
-    
+    flex-direction: row;
+    gap: 15px;
 }
 
 /*.icon{*/
@@ -50,7 +51,7 @@ td, th{
     --color: 46, 134, 222;
     display: flex;
     text-decoration: none;
-    margin: 0 5px;
+    
     padding: 10px;
     border-radius: 5px;
     justify-content: center;
