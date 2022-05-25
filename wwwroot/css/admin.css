@@ -95,3 +95,7 @@ th{
 .table>:not(caption)>> {
     border-bottom-width: 0;
 }
+
+.card-subtitle{
+    padding-bottom: 10px;
+}

@@ -1,3 +1,5 @@
+@using System.Linq
+
 <link href="@Url.Content("~/css/admin.css")" rel="stylesheet" type="text/css" />
 
 @foreach(var employe in (List<Employe>) @ViewData["Employees"]){
@@ -76,29 +78,40 @@
             <hr class="sep"/>
         </div>
     <div class="employe-list card-body">
-        <table class="admin-tables table table-hover">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prenom</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Avoir congé</th>
-                <th scope="col">Salaire</th>
-            </tr>
-            </thead>
-            
-            <tbody>
-            <tr>
-                <th scope="row">bruh</th>
-                <td>bruh</td>
-                <td>bruh</td>
-                <td>bruh</td>
-                <td>bruh</td>
-                <td>bruh</td>
-            </tr>
-            </tbody>
-        </table>
+        
+        @if (((List<Employe>) ViewBag.Employees).Count != 0)
+        {
+            <table class="admin-tables table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Durée congé</th>
+                    <th scope="col">Montant salaire</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach (var employe in (List<Employe>) ViewData["Employees"])
+                {
+                    <tr>
+                        <th scope="row">@employe.PersonId</th>
+                        <td>@employe.Person.Nom</td>
+                        <td>@employe.Person.Prenom</td>
+                        <td>@employe.Person.Email</td>
+                        <td>@employe.CongeRemaining</td>
+                        <td>@employe.CurrentSalary</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p><pre class="fw-bold fs-5">Rien à afficher ici -</pre></p>
+        }
     </div>
 </div>
 
@@ -111,66 +124,87 @@
     <div class="list card-body">
         <h4 class="card-subtitle"><strong>En demande</strong></h4>
         <div class="conge-list card-body">
-            <table class="admin-tables table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Id d'employé</th>
-                    <th scope="col">Nom d'employé</th>
-                    <th scope="col">Prenom d'employé</th>
-                    <th scope="col">Durée</th>
-                    <th scope="col">Début de congé</th>
-                    <th scope="col">Temps restant</th>
-                    <th scope="col">Status</th>
-                </tr>
-                </thead>
-
-                <tbody>
-                <tr>
-                    <th scope="row">bruh</th>
-                    <td>bruh</td>
-                    <td>bruh</td>
-                    <td>bruh</td>
-                    <td>bruh</td>
-                    <td>bruh</td>
-                    <td>bruh</td>
-                    <td class="status">bruh</td>
-                </tr>
-                </tbody>
-            </table>
+            @if (((List<Conge>) ViewBag.PendingConges).Count != 0)
+            {
+                <table class="admin-tables table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id employé</th>
+                        <th scope="col">Nom employé</th>
+                        <th scope="col">Prenom employé</th>
+                        <th scope="col">Durée</th>
+                        <th scope="col">Début congé</th>
+                        <th scope="col">Temps restant</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+            
+                    <tbody>
+                    @foreach (var conge in ((List<Conge>) ViewData["PendingConges"])!)
+                    {
+                        <tr>
+                            <th scope="row">@conge.Id</th>
+                            <td>@conge.EmployeId</td>
+                            <td>@conge.Employe.Person.Nom</td>
+                            <td>@conge.Employe.Person.Prenom</td>
+                            <td>@conge.Duration</td>
+                            <td>@conge.DemandeTime</td>
+                            <td>@conge.Employe.CongeRemaining</td>
+                            <td class="status">@conge.Status</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p><pre class="fw-bold fs-6">Rien à afficher ici -</pre></p>
+            }
         </div>
     </div>
     
     <div class="list card-body">
         <h4 class="card-subtitle"><strong>En cours</strong></h4>
         <div class="conge-list card-body">
-            <table class="admin-tables table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Id d'employé</th>
-                    <th scope="col">Nom d'employé</th>
-                    <th scope="col">Prenom d'employé</th>
-                    <th scope="col">Durée</th>
-                    <th scope="col">Début de congé</th>
-                    <th scope="col">Temps restant</th>
-                    <th scope="col">Status</th>
-                </tr>
-                </thead>
+            
+            @if (((List<Conge>) ViewBag.CurrentConges).Count != 0)
+            {
+                <table class="admin-tables table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id employé</th>
+                        <th scope="col">Nom employé</th>
+                        <th scope="col">Prenom employé</th>
+                        <th scope="col">Durée</th>
+                        <th scope="col">Début congé</th>
+                        <th scope="col">Temps restant</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
 
-                <tbody>
-                <tr>
-                    <th scope="row">bruh</th>
-                    <td>bruh</td>
-                    <td>bruh</td>
-                    <td>bruh</td>
-                    <td>bruh</td>
-                    <td>bruh</td>
-                    <td>bruh</td>
-                    <td  class="status">bruh</td>
-                </tr>
-                </tbody>
-            </table>
+                    <tbody>
+                    @foreach (var conge in ((List<Conge>) ViewData["CurrentConges"])!)
+                    {
+                        <tr>
+                            <th scope="row">@conge.Id</th>
+                            <td>@conge.EmployeId</td>
+                            <td>@conge.Employe.Person.Nom</td>
+                            <td>@conge.Employe.Person.Prenom</td>
+                            <td>@conge.Duration</td>
+                            <td>@conge.DemandeTime</td>
+                            <td>@conge.Employe.CongeRemaining</td>
+                            <td class="status">@conge.Status</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p><pre class="fw-bold fs-6">Rien à afficher ici -</pre></p>
+            }
         </div>
     </div>
 </div>
@@ -181,32 +215,44 @@
             <hr class="sep"/>
         </div>
     <div class="paie-list card-body">
-        <table class="admin-tables table table-hover">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Id d'employé</th>
-                <th scope="col">Nom d'employé</th>
-                <th scope="col">Prenom d'employé</th>
-                <th scope="col">Montant</th>
-                <th scope="col">Mois</th>
-                <th scope="col">Année</th>
-                <th scope="col">Status</th>
-            </tr>
-            </thead>
-                        
-            <tbody>
-            <tr>
-                <th scope="row">bruh</th>
-                <td>bruh</td>
-                <td>bruh</td>
-                <td>bruh</td>
-                <td>bruh</td>
-                <td>bruh</td>
-                <td>bruh</td>
-                <td class="status">bruh</td>
-            </tr>
-            </tbody>
-        </table>
+        
+        <!-- TODO -->
+        @if (((List<Salary>) ViewData["Salaries"]).Count != 0)
+        {
+            <table class="admin-tables table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id employé</th>
+                    <th scope="col">Nom employé</th>
+                    <th scope="col">Prenom employé</th>
+                    <th scope="col">Montant</th>
+                    <th scope="col">Mois</th>
+                    <th scope="col">Année</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach (var salary in ((List<Salary>) ViewData["Salaries"])!)
+                {
+                    <tr>
+                        <th scope="row">@salary.Id</th>
+                        <td>@salary.EmployeId</td>
+                        <td>@salary.Employe.Person.Nom</td>
+                        <td>@salary.Employe.Person.Prenom</td>
+                        <td>@salary.Amount</td>
+                        <td>@salary.Month</td>
+                        <td>@salary.Year</td>
+                        <td class="status">@salary.Status</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p><pre class="fw-bold fs-5">Rien à afficher ici -</pre></p>
+        }
     </div>
 </div>
