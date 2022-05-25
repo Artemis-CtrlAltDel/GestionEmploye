@@ -146,7 +146,49 @@
                             <td>@conge.Duration</td>
                             <td>@conge.DemandeTime</td>
                             <td>@conge.Employe.CongeRemaining</td>
-                            <td class="status">@conge.Status</td>
+                            <td class="status">
+                                @{
+                                    string button_class;
+                                    string button_color;
+                                    if (conge.Status.Contains("Pending"))
+                                    {
+                                        button_class = "btn btn-outline-warning";
+                                        button_color = "254, 202, 87";
+                                    }
+                                    else if (conge.Status.Contains("Declined"))
+                                    {
+                                        button_class = "btn btn-outline-danger";
+                                        button_color = "0, 210, 211";
+                                    }
+                                    else
+                                    {
+                                        button_class = "btn btn-outline-success";
+                                        button_color = "255, 107, 107";
+                                    }
+                                }
+                                <button class="status @(button_class)"
+                                        style="--status-color: @(button_color)">
+                                    @if (button_class.Contains("warning"))
+                                    {
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="status-icons bi bi-exclamation-diamond-fill" viewBox="0 0 16 16">
+                                            <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                        </svg>
+                                    }
+                                    else if (button_class.Contains("success"))
+                                    {
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="status-icons bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                        </svg>
+                                    }
+                                    else
+                                    {
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="status-icons" viewBox="0 0 512 512">
+                                            <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"/>
+                                        </svg>
+                                    }
+                                    @conge.Status
+                                </button>
+                            </td>
                         </tr>
                     }
                     </tbody>
@@ -190,7 +232,49 @@
                             <td>@conge.Duration</td>
                             <td>@conge.DemandeTime</td>
                             <td>@conge.Employe.CongeRemaining</td>
-                            <td class="status">@conge.Status</td>
+                            <td class="status">
+                                @{
+                                    string button_class;
+                                    string button_color;
+                                    if (conge.Status.Contains("Pending"))
+                                    {
+                                        button_class = "btn btn-outline-warning";
+                                        button_color = "254, 202, 87";
+                                    }
+                                    else if (conge.Status.Contains("Declined"))
+                                    {
+                                        button_class = "btn btn-outline-danger";
+                                        button_color = "0, 210, 211";
+                                    }
+                                    else
+                                    {
+                                        button_class = "btn btn-outline-success";
+                                        button_color = "255, 107, 107";
+                                    }
+                                }
+                                <button class="status @(button_class)"
+                                        style="--status-color: @(button_color)">
+                                    @if (button_class.Contains("warning"))
+                                    {
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="status-icons bi bi-exclamation-diamond-fill" viewBox="0 0 16 16">
+                                            <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                        </svg>
+                                    }
+                                    else if (button_class.Contains("success"))
+                                    {
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="status-icons bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                        </svg>
+                                    }
+                                    else
+                                    {
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="status-icons" viewBox="0 0 512 512">
+                                            <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"/>
+                                        </svg>
+                                    }
+                                    @conge.Status
+                                </button>
+                            </td>
                         </tr>
                     }
                     </tbody>
