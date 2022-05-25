@@ -16,8 +16,7 @@ public class AdminController : Controller
 
     public IActionResult Index() {
         ViewData["TotalEmployees"] = _context.Employe.Count();
-        // ViewBag.TotalEmployees ??= -1;
-
+        
         return View();
     }
 }

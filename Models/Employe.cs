@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace GestionEmploye.Models
@@ -12,5 +13,16 @@ namespace GestionEmploye.Models
         [Required]
         public Person Person {get; set;}
 
+        
+        [DefaultValue(30)]
+        [Range(0,30)]
+        public int CongeRemaining { get; set; }
+
+        
+        public float CurrentSalary { get; set; }
+
+        public ICollection<Conge> Conges { get; set; }
+        
+        public ICollection<Salary> Salaries { get; set; }
     }
 }
