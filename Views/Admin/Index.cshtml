@@ -1,5 +1,9 @@
 <link href="@Url.Content("~/css/admin.css")" rel="stylesheet" type="text/css" />
 
+@foreach(var employe in (List<Employe>) @ViewData["Employees"]){
+    <p>@employe.Person.Nom</p>
+}
+
 <h2>Dashboard</h2>
 <div class="d-flex gap-3 flex-wrap">
     <div class="admin-card p-4">
