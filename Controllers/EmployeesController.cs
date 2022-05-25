@@ -21,7 +21,8 @@ namespace GestionEmploye.Controllers
         // GET: Employees
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Employe.ToListAsync());
+            ViewData["Employees"] = await _context.Employe.Include(nameof(Person)).ToListAsync();
+              return View();
         }
 
         // GET: Employees/Details/5
