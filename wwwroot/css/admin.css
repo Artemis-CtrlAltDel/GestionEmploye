@@ -68,8 +68,8 @@ th{
 }
 
 .sep{
-    width: 6ch;
-    padding: 1.5px 0;
+    width: 30px;
+    padding: 2px 0;
     background-color: var(--b-color);
     opacity: 1;
     border-radius: 5ch;
