@@ -39,7 +39,7 @@ public class AppContext : DbContext
         .WithMany(i => i.Salaries)
         .HasForeignKey(b => b.EmployeId);
 
-        
+
     }
 
     public DbSet<Employe> Employe { get; set; }
@@ -47,5 +47,6 @@ public class AppContext : DbContext
     public DbSet<Admin> Admin { get; set; }
 
     public DbSet<Conge> Conge { get; set; }
+    public DbSet<Salary> Salary { get; set; }
 
 }
