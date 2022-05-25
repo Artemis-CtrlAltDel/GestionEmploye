@@ -9,3 +9,57 @@
 .admin-tables :is(td , th){
     padding-block: 20px;
 }
+
+.svg-man{
+    height: 16px;
+    width: 16px;
+}
+
+td{
+    vertical-align: middle;
+}
+.icon-wrapper{
+    display: flex;
+    
+}
+
+/*.icon{*/
+/*    --color: 44, 62, 80;*/
+/*    !*background-color: rgb(var(--color));*!*/
+/*    !*box-shadow: 0 0 0 0.4rem rgba(var(--color),.1);*!*/
+/*    text-align: center;*/
+/*    padding: 5px;*/
+/*    border-radius: 5px;*/
+/*    */
+/*    text-decoration: none;*/
+/*}*/
+/*.icon:nth-child(2){*/
+/*    margin: 0 20px;*/
+/*}*/
+
+.icon:hover{
+    animation: pulsate 1s ease-in-out backwards;
+    transition-duration: .2s;
+    background-color: rgb(var(--color));
+    box-shadow: 0 0 0 0.4rem rgba(var(--color),.1);
+    fill: white;
+}
+
+
+.icon{
+    --color: 46, 134, 222;
+    display: flex;
+    text-decoration: none;
+    margin: 0 5px;
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+
+@keyframes pulsate {
+    0%{
+        box-shadow: 0 0 25px white,
+        0 0 50px rgb(var(--color));
+    }
+}
