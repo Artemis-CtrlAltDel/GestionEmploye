@@ -47,7 +47,7 @@ namespace GestionEmploye.Controllers
         [HttpPost]
         public async Task<IActionResult> Accept(int id){
             var conge = await _context.Conge.FindAsync(id);
-            if (conge.Status == "Pending"){
+            if (conge?.Status == "Pending"){
                 conge.Status = "Accepted";
                 _context.Update(conge);
                 await _context.SaveChangesAsync();
