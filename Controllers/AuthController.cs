@@ -41,7 +41,7 @@ namespace GestionEmploye.Controllers
                     ModelState.AddModelError("Password", "Wrong password!");
                     return View();
                 }
-                HttpContext.Session.SetInt32("PersonId", result.PersonId);
+                HttpContext.Session.SetInt32("PersonId", result.Person.Id);
                 HttpContext.Session.SetString("Nom", result.Person.Nom);
                 HttpContext.Session.SetString("Prenom", result.Person.Prenom);
                 HttpContext.Session.SetInt32("Admin", 1);
@@ -59,7 +59,7 @@ namespace GestionEmploye.Controllers
                 ModelState.AddModelError("Password", "Wrong password!");
                 return View();
             }
-            HttpContext.Session.SetInt32("PersonId", result1.PersonId);
+            HttpContext.Session.SetInt32("PersonId", result1.Person.Id);
             HttpContext.Session.SetString("Nom", result1.Person.Nom);
             HttpContext.Session.SetString("Prenom", result1.Person.Prenom);
             HttpContext.Session.SetInt32("Admin", 0);

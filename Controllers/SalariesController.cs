@@ -70,7 +70,8 @@ namespace GestionEmploye.Controllers
                 _context.Update(salary);
                 await _context.SaveChangesAsync();
             }
-            return Redirect("/salaries#lst");
+            
+            return Redirect(Request.Headers.Referer+"#lst");
         }
         
         [HttpPost]
@@ -84,7 +85,7 @@ namespace GestionEmploye.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect(Request.Headers.Referer+"#lst");
         }
 
     }

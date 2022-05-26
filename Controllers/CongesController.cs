@@ -52,7 +52,7 @@ namespace GestionEmploye.Controllers
                 _context.Update(conge);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToAction(nameof(Index));
+            return Redirect(Request.Headers.Referer);
         }
 
         [HttpPost]
@@ -63,7 +63,7 @@ namespace GestionEmploye.Controllers
                 _context.Update(conge);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToAction(nameof(Index));
+            return Redirect(Request.Headers.Referer);
         }
 
         [HttpPost]
@@ -76,7 +76,7 @@ namespace GestionEmploye.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect(Request.Headers.Referer);
         }
 
         private bool CongeExists(int id)

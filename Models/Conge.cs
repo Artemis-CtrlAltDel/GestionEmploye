@@ -17,6 +17,7 @@ namespace GestionEmploye.Models
 
         [Range(1,30)]
         [Required]
+        [Display(Name = "Durée")]
         public int Duration { get; set; }
 
         [DefaultValue(0)]

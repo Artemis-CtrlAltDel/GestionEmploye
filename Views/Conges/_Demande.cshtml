@@ -1,0 +1,26 @@
+@model GestionEmploye.Models.Conge
+
+<h1>Demander conge</h1>
+
+<hr />
+<div class="row">
+    <form asp-action="Create" class="d-flex align-items-center justify-content-between gap-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <label asp-for="Date" class="control-label"></label>
+        <input asp-for="Date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+        <label asp-for="Duration" class="control-label"></label>
+        <input asp-for="Duration" class="form-control" />
+        <span asp-validation-for="Duration" class="text-danger"></span>
+
+        <input type="submit" value="Demander" class="btn btn-primary" />
+    </form>
+    <div class="alert alert-warning mt-4 d-flex align-items-center justify-content-between">
+        <p class="m-0">Vous avez une demande en attente</p>
+        <button class="btn btn-outline-secondary">Annuler</button>
+    </div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

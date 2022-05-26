@@ -37,7 +37,7 @@
                 @foreach (var employe in (List<Employe>) ViewData["Employees"])
                 {
                     <tr>
-                        <th scope="row">@employe.PersonId</th>
+                        <th scope="row">@employe.Person.Id</th>
                         <td>@employe.Person.Nom</td>
                         <td>@employe.Person.Prenom</td>
                         <td>@employe.Person.Email</td>
