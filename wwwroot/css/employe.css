@@ -102,3 +102,14 @@ td, th{
 /*    border-top-left-radius: 5px !important;*/
 /*    border-bottom-left-radius: 5px !important;*/
 /*}*/
+
+.title-to-left{
+    text-align: start;
+}
+.to-left>.sep{
+    margin: 0;
+}
+
+.card-wrapper{
+    border-left: 4px solid var(--primary-color);
+}
