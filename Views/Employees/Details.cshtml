@@ -1,4 +1,6 @@
 @model GestionEmploye.Models.Employe
+@using System.Linq;
+
 
 @{
     ViewData["Title"] = "Details";
@@ -24,10 +26,10 @@
 </div>
 
 <div>
-    <div class="row g-2">
+    <div class="row g-3">
         <div class="col-6">
-            <div class="card-wrapper">
-                <div class="p-3 border bg-light font-monospace">
+            <div class="card-wrapper" style="background-color: white">
+                <div class="p-3 font-monospace">
                     <span class="card-title title-to-left fw-bold">Id° </span>
                     <svg height="16" width="16" style="fill: var(--primary-color)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
                         <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/>
@@ -37,8 +39,8 @@
             </div>
         </div>
         <div class="col-6">
-            <div class="card-wrapper">
-                <div class="p-3 border bg-light font-monospace">
+            <div class="card-wrapper" style="background-color: white">
+                <div class="p-3 font-monospace">
                     <span class="card-title title-to-left fw-bold">E-mail </span>
                     <svg height="16" width="16" style="fill: var(--primary-color)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
                         <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/>
@@ -48,8 +50,8 @@
             </div>
         </div>
         <div class="col-6">
-            <div class="card-wrapper">
-                <div class="p-3 border bg-light font-monospace">
+            <div class="card-wrapper" style="background-color: white">
+                <div class="p-3 font-monospace">
                     <span class="card-title title-to-left fw-bold">Quota sur congés </span>
                     <svg height="16" width="16" style="fill: var(--primary-color)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
                         <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/>
@@ -59,8 +61,8 @@
             </div>
         </div>
         <div class="col-6">
-            <div class="card-wrapper">
-                <div class="p-3 border bg-light font-monospace">
+            <div class="card-wrapper" style="background-color: white">
+                <div class="p-3 font-monospace">
                     <span class="card-title title-to-left fw-bold">Montant disponible </span>
                     <svg height="16" width="16" style="fill: var(--primary-color)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
                         <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/>
@@ -72,12 +74,234 @@
     </div>
 </div>
 
-@* <div class="card-body"> *@
-@*     <h2 class="card-title">Liste des Employés</h2> *@
-@*     <hr class="sep"/> *@
-@* </div> *@
+<div class="card" style="margin-top: 3.0em;">
 
-<p>
-    <a asp-action="Create" class="btn btn-outline-primary">Ajouter un employe</a>
-</p>
+    <div class="card-body to-left">
+        <h2 class="card-title title-to-left"># Historique des congés pour <strong>@ViewBag.Employee.Person.Nom @ViewBag.Employee.Person.Prenom</strong></h2>
+        <hr class="sep"/>
+    </div>
+    <div class="conge-list card-body">
+        @if (ViewBag.Employee.Conges.Count != 0)
+        {
+            <table class="admin-tables table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Durée</th>
+                    <th scope="col">Début congé</th>
+                    <th scope="col">Temps restant</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
 
+                <tbody>
+                @foreach (Conge conge in (ViewBag.Employee.Conges))
+                {
+                    <tr>
+                        <th scope="row">@conge.Id</th>
+                        <td>@conge.Duration</td>
+                        <td>@conge.DemandeTime</td>
+                        <td>@conge.Employe.CongeRemaining</td>
+                        <td>
+                            @{
+                                string button_class;
+                                string button_color;
+                                if (conge.Status.Contains("Pending"))
+                                {
+                                    button_class = "btn btn-outline-warning";
+                                    button_color = "254, 202, 87";
+                                }
+                                else if (conge.Status.Contains("Declined"))
+                                {
+                                    button_class = "btn btn-outline-danger";
+                                    button_color = "255, 107, 107";
+                                }
+                                else
+                                {
+                                    button_class = "btn btn-outline-success";
+                                    button_color = "0, 210, 211";
+                                }
+                            }
+                            <button class="status @(button_class)" style="--status-color: @(button_color)">
+                                @if (button_class.Contains("warning"))
+                                {
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="status-icons bi bi-exclamation-diamond-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                    </svg>
+                                }
+                                else if (button_class.Contains("success"))
+                                {
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="status-icons bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                                }
+                                else
+                                {
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="status-icons" viewBox="0 0 512 512">
+                                        <path
+                                            d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"/>
+                                    </svg>
+                                }
+                                @conge.Status
+                            </button>
+                        </td>
+
+                        @if (button_class.Contains("warning"))
+                        {
+                            <td class="row-action">
+                                <div class="icon-wrapper">
+                                    <form asp-controller="Conges" asp-action="Accept" class="delete-form">
+                                        <input type="hidden" asp-for="@conge.Id" name="Id"/>
+                                        <label>
+                                            <input type="submit" value="Delete" style="display:none"/>
+                                            <a class="icon" style="--color: 16, 172, 132">
+                                                <svg class="svg-man" viewBox="0 0 448 512">
+                                                    <path
+                                                        d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/>
+                                                </svg>
+                                            </a>
+                                        </label>
+                                    </form>
+                                    <form asp-controller="Conges" asp-action="Decline" class="delete-form">
+                                        <input type="hidden" asp-for="@conge.Id" name="Id"/>
+                                        <label>
+                                            <input type="submit" value="Delete" style="display:none"/>
+
+                                            <a class="icon" style="--color: 45, 52, 54">
+                                                <svg class="svg-man" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                    <path
+                                                        d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/>
+                                                </svg>
+                                            </a>
+                                        </label>
+                                    </form>
+                                </div>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <div class="icon-wrapper">
+                                    <form asp-action="Delete" class="delete-form">
+                                        <input type="hidden" asp-for="@conge.Id" name="Id"/>
+                                        <label>
+                                            <input type="submit" value="Delete" style="display:none"/>
+                                            <a class="icon" style="--color: 238, 82, 83">
+                                                <svg class="svg-man" viewBox="0 0 448 512">
+                                                    <path
+                                                        d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM394.8 466.1C393.2 492.3 372.3 512 346.9 512H101.1C75.75 512 54.77 492.3 53.19 466.1L31.1 128H416L394.8 466.1z"/>
+                                                </svg>
+                                            </a>
+                                        </label>
+                                    </form>
+                                </div>
+                            </td>
+                        }
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>
+                <pre class="fw-bold fs-6">Rien à afficher ici -</pre>
+            </p>
+        }
+    </div>
+</div>
+
+<div class="list card">
+    
+    <div class="card-body to-left">
+        <h2 class="card-title title-to-left"># Historique des paiements pour <strong>@ViewBag.Employee.Person.Nom @ViewBag.Employee.Person.Prenom</strong></h2>
+        <hr class="sep"/>
+    </div>
+    <div class="paie-list card-body">
+
+        <!-- TODO -->
+        @if (ViewBag.Employee.Salaries.Count != 0)
+        {
+            <table class="admin-tables table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Montant</th>
+                    <th scope="col">Mois</th>
+                    <th scope="col">Année</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach (Salary salary in (ViewBag.Employee.Salaries))
+                {
+                    <tr>
+                        <th scope="row">@salary.Id</th>
+                        <td>@salary.Amount</td>
+                        <td>@salary.Month.Month</td>
+                        <td>@salary.Month.Year</td>
+                        <td>
+                            <button class="status @(salary.Status.Contains("Pending") ? "btn btn-outline-warning" : "btn btn-outline-success")"
+                                    style="--status-color: @(salary.Status.Contains("Pending") ? "254, 202, 87" : "0, 210, 211")">
+                                @if (salary.Status.Contains("Pending"))
+                                {
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="status-icons bi bi-exclamation-diamond-fill" viewBox="0 0 16 16">
+                                        <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                    </svg>
+                                }
+                                else
+                                {
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="status-icons bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </svg>
+                                }
+                                @salary.Status
+                            </button>
+                        </td>
+                        <td class="row-action">
+                            <div class="icon-wrapper">
+                                <form asp-controller="Salaries" asp-action="Paid" class="delete-form" style='@(salary.Status == "Pending" ? "" : "opacity:0;pointer-events: none;")'>
+                                    <input type="hidden" asp-for="@salary.Id" name="Id"/>
+                                    <label>
+                                        <input type="submit" value="Delete" style="display:none"/>
+                                        <a class="icon" style="--color: 16, 172, 132">
+                                            <svg class="svg-man" viewBox="0 0 448 512">
+                                                <path
+                                                    d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/>
+                                            </svg>
+                                        </a>
+                                    </label>
+                                </form>
+                                <form asp-controller="Salaries" asp-action="Delete" class="delete-form">
+                                    <input type="hidden" asp-for="@salary.Id" name="Id"/>
+                                    <label>
+                                        <input type="submit" value="Delete" style="display:none"/>
+                                        <a class="icon" style="--color: 238, 82, 83">
+                                            <svg class="svg-man" viewBox="0 0 448 512">
+                                                <path
+                                                    d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM394.8 466.1C393.2 492.3 372.3 512 346.9 512H101.1C75.75 512 54.77 492.3 53.19 466.1L31.1 128H416L394.8 466.1z"/>
+                                            </svg>
+                                        </a>
+                                    </label>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>
+                <pre class="fw-bold fs-5">Rien à afficher ici -</pre>
+            </p>
+        }
+    </div>
+</div>

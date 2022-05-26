@@ -111,5 +111,5 @@ td, th{
 }
 
 .card-wrapper{
-    border-left: 4px solid var(--primary-color);
+    padding: 10px 0;
 }
