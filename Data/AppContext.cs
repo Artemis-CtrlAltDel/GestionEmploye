@@ -17,12 +17,14 @@ public class AppContext : DbContext
         modelBuilder.Entity<Employe>()
         .HasOne(b => b.Person)
         .WithOne(i => i.Employe)
-        .HasForeignKey<Person>(b => b.EmployeId);
+        .HasForeignKey<Person>(b => b.EmployeId)
+        .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Admin>()
         .HasOne(b => b.Person)
         .WithOne(i => i.Admin)
-        .HasForeignKey<Person>(b => b.AdminId);
+        .HasForeignKey<Person>(b => b.AdminId)
+        .OnDelete(DeleteBehavior.Cascade);
 
         var conge = modelBuilder.Entity<Conge>();
         conge

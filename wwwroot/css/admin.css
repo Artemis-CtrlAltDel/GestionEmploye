@@ -92,7 +92,7 @@ td, th{
     border-bottom-color: transparent;
 }
 
-.table>:not(caption)>> {
+.table>:not(caption){
     border-bottom-width: 0;
 }
 

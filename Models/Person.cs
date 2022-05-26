@@ -6,17 +6,17 @@ namespace GestionEmploye.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Le champ Nom doit etre remplis")]
         public string Nom { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Le champ Prenom doit etre remplis")]
         public string Prenom { get; set; }
 
-        [Required(ErrorMessage = "Le champs Email doit etre remplis")]
+        [Required(ErrorMessage = "Le champ Email doit etre remplis")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         
-        [Required(ErrorMessage = "Le champs Mot de passe doit etre remplis")]
+        [Required(ErrorMessage = "Le champ Mot de passe doit etre remplis")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

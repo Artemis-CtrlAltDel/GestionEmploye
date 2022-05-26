@@ -2,7 +2,7 @@
     border-bottom-color: transparent;
 }
 
-.table>:not(caption)>> {
+.table>:not(caption) {
     border-bottom-width: 0;
 }
 
@@ -90,6 +90,10 @@ td, th{
 
 .card{
     background-color: white;    
+}
+
+.delete-form a {
+    cursor: pointer;
 }
 
 /*.admin-tables{*/
