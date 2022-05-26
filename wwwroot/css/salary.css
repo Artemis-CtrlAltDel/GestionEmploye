@@ -13,3 +13,7 @@
 .sep{
     margin: 0 auto;
 }
+
+.btn-outline-warning {
+    color: #b18f26;
+}

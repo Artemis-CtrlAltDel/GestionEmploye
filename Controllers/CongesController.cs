@@ -18,14 +18,12 @@ namespace GestionEmploye.Controllers
             _context = context;
         }
 
-        // GET: Conges
         public async Task<IActionResult> Index()
         {
             ViewData["Conges"] = await _context.Conge.Include(c => c.Employe.Person).ToListAsync();
             return View();
         }
 
-        // GET: Conges/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Conge == null)
@@ -44,18 +42,13 @@ namespace GestionEmploye.Controllers
             return View(conge);
         }
 
-        // GET: Conges/Create
         public IActionResult Create()
         {
             ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id");
             return View();
         }
 
-        // POST: Conges/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Date,DemandeTime,Duration,Status,EmployeId")] Conge conge)
         {
             if (ModelState.IsValid)
@@ -68,87 +61,32 @@ namespace GestionEmploye.Controllers
             return View(conge);
         }
 
-        // GET: Conges/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Conge == null)
-            {
-                return NotFound();
-            }
 
-            var conge = await _context.Conge.FindAsync(id);
-            if (conge == null)
-            {
-                return NotFound();
-            }
-            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id", conge.EmployeId);
-            return View(conge);
-        }
-
-        // POST: Conges/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Date,DemandeTime,Duration,Status,EmployeId")] Conge conge)
-        {
-            if (id != conge.Id)
-            {
-                return NotFound();
+        public async Task<IActionResult> Accept(int id){
+            var conge = await _context.Conge.FindAsync(id);
+            if (conge.Status == "Pending"){
+                conge.Status = "Accepted";
+                _context.Update(conge);
+                await _context.SaveChangesAsync();
             }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(conge);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CongeExists(conge.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id", conge.EmployeId);
-            return View(conge);
+            return RedirectToAction(nameof(Index));
         }
 
-        // GET: Conges/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Conge == null)
-            {
-                return NotFound();
+        [HttpPost]
+        public async Task<IActionResult> Decline(int id){
+            var conge = await _context.Conge.FindAsync(id);
+            if (conge.Status == "Pending"){
+                conge.Status = "Declined";
+                _context.Update(conge);
+                await _context.SaveChangesAsync();
             }
-
-            var conge = await _context.Conge
-                .Include(c => c.Employe)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (conge == null)
-            {
-                return NotFound();
-            }
-
-            return View(conge);
+            return RedirectToAction(nameof(Index));
         }
 
-        // POST: Conges/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
         {
-            if (_context.Conge == null)
-            {
-                return Problem("Entity set 'AppContext.Conge'  is null.");
-            }
             var conge = await _context.Conge.FindAsync(id);
             if (conge != null)
             {

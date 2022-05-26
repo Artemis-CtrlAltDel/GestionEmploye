@@ -110,10 +110,6 @@ namespace GestionEmploye.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            if (_context.Employe == null)
-            {
-                return Problem("Entity set 'AppContext.Employe'  is null.");
-            }
             var employe = await _context.Employe.Include(nameof(Person)).FirstOrDefaultAsync(m => m.Id == id);
             if (employe != null)
             {
