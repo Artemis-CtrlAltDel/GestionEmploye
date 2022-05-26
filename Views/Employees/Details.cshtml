@@ -4,33 +4,80 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<link href="@Url.Content("~/css/admin.css")" rel="stylesheet" type="text/css"/>
+<link href="@Url.Content("~/css/salary.css")" rel="stylesheet" type="text/css"/>
+<link href="@Url.Content("~/css/employe.css")" rel="stylesheet" type="text/css"/>
 
-<div>
-    <h4>Employe</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PersonId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PersonId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CongeRemaining)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CongeRemaining)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CurrentSalary)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CurrentSalary)
-        </dd>
-    </dl>
-</div>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+<div class="card-body to-left">
+    <h2 class="card-title title-to-left">À propos de <strong>@ViewBag.Employee.Person.Nom @ViewBag.Employee.Person.Prenom</strong></h2>
+    <hr class="sep"/>
+</div>
+
+<div>
+    <div class="row g-2">
+        <div class="col-6">
+            <div class="card-wrapper">
+                <div class="p-3 border bg-light font-monospace">
+                    <span class="card-title title-to-left fw-bold">Id° </span>
+                    <svg height="16" width="16" style="fill: var(--primary-color)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                        <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/>
+                    </svg>
+                    @ViewBag.Employee.Person.EmployeId
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card-wrapper">
+                <div class="p-3 border bg-light font-monospace">
+                    <span class="card-title title-to-left fw-bold">E-mail </span>
+                    <svg height="16" width="16" style="fill: var(--primary-color)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                        <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/>
+                    </svg>
+                    @ViewBag.Employee.Person.Email
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card-wrapper">
+                <div class="p-3 border bg-light font-monospace">
+                    <span class="card-title title-to-left fw-bold">Quota sur congés </span>
+                    <svg height="16" width="16" style="fill: var(--primary-color)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                        <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/>
+                    </svg>
+                    @ViewBag.Employee.CongeRemaining
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card-wrapper">
+                <div class="p-3 border bg-light font-monospace">
+                    <span class="card-title title-to-left fw-bold">Montant disponible </span>
+                    <svg height="16" width="16" style="fill: var(--primary-color)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                        <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/>
+                    </svg>
+                    @ViewBag.Employee.CurrentSalary
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <div class="card-body"> *@
+@*     <h2 class="card-title">Liste des Employés</h2> *@
+@*     <hr class="sep"/> *@
+@* </div> *@
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary">Ajouter un employe</a>
+</p>
+
