@@ -28,14 +28,4 @@ public class AdminController : Controller
         return View();
     }
 
-
-    public async Task<IActionResult> Employees(){
-        return View("Views/Admin/Employees/Index.cshtml",await _context.Employe.ToListAsync());
-    }
-
-    [Route("/admin/employee/{id?}")]
-    public IActionResult Employee(){
-        return View("Views/Admin/Employees/Create.cshtml");
-    }
-
 }

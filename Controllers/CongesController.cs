@@ -24,24 +24,6 @@ namespace GestionEmploye.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Conge == null)
-            {
-                return NotFound();
-            }
-
-            var conge = await _context.Conge
-                .Include(c => c.Employe)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (conge == null)
-            {
-                return NotFound();
-            }
-
-            return View(conge);
-        }
-
         public IActionResult Create()
         {
             ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id");
