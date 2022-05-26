@@ -34,7 +34,7 @@ namespace GestionEmploye.Controllers
             ViewData["EmployeId"] = new SelectList(employees, "Id", "FullName");
             var status = new [] { new {Name = "En cours" , Value = "Pending"},new {Name = "Payé" , Value = "Paid"}}.ToList();
             ViewData["StatusList"] = new SelectList(status, "Value", "Name");
-            ViewData["Salaries"] = await _context.Salary.Include(s => s.Employe).ToListAsync();
+            ViewData["Salaries"] = await _context.Salary.Include(m => m.Employe.Person).ToListAsync();
             return View();
         }
 

@@ -88,9 +88,13 @@ td, th{
     }
 }
 
-.admin-tables{
-    --b-color: #1094da;
-    border-left: 5px solid var(--b-color);
-    border-top-left-radius: 5px !important;
-    border-bottom-left-radius: 5px !important;
+.card{
+    background-color: white;    
 }
+
+/*.admin-tables{*/
+/*    --b-color: #1094da;*/
+/*    border-left: 5px solid var(--b-color);*/
+/*    border-top-left-radius: 5px !important;*/
+/*    border-bottom-left-radius: 5px !important;*/
+/*}*/

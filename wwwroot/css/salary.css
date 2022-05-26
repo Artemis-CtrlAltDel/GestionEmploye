@@ -1,0 +1,15 @@
+.employe-col{
+    font-weight: bold;
+    font-style: italic;
+    color: var(--primary-color);
+    
+    text-transform: capitalize;
+}
+
+.card{
+    background-color: white;
+}
+
+.sep{
+    margin: 0 auto;
+}
