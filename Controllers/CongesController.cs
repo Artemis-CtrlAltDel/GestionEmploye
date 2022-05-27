@@ -20,7 +20,15 @@ namespace GestionEmploye.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewData["Conges"] = await _context.Conge.Include(c => c.Employe.Person).ToListAsync();
+            if(HttpContext.Session.GetInt32("Admin") == 1){
+                ViewData["Conges"] = await _context.Conge.Include(c => c.Employe.Person).ToListAsync();
+            }else{
+                ViewData["Conges"] = await _context.Conge.Where(m => m.EmployeId == HttpContext.Session.GetInt32("EmployeId")).ToListAsync();
+            }
+
+            //not admin
+
+
             return View();
         }
 
