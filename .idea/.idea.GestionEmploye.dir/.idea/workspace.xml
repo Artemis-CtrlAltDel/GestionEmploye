@@ -5,8 +5,7 @@
     <projectFile profileName="IIS Express">GestionEmploye.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2336d08-34a8-456c-9228-89bd7993e086" name="Changes" comment=":)">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a2336d08-34a8-456c-9228-89bd7993e086" name="Changes" comment=":(">
       <change beforePath="$PROJECT_DIR$/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +99,7 @@
       <workItem from="1653666547576" duration="11723000" />
       <workItem from="1653680906040" duration="973000" />
       <workItem from="1653687595501" duration="690000" />
-      <workItem from="1653690399801" duration="1699000" />
+      <workItem from="1653690399801" duration="2558000" />
     </task>
     <task id="LOCAL-00001" summary="bruh">
       <created>1653394727669</created>
@@ -326,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653690975519</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary=":(">
+      <created>1653692123530</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1653692123530</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,6 +362,7 @@
     <MESSAGE value="hhhhh madrbsh 3afak" />
     <MESSAGE value="hhhh madirsh blame come on man" />
     <MESSAGE value=":)" />
-    <option name="LAST_COMMIT_MESSAGE" value=":)" />
+    <MESSAGE value=":(" />
+    <option name="LAST_COMMIT_MESSAGE" value=":(" />
   </component>
 </project>
