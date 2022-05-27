@@ -11,8 +11,6 @@
 
 .carousel-inner .card{
     border: none;
-    border-bottom: 5px solid var(--b-color);
-    border-bottom-right-radius: 5px;
 }
 
 body{
