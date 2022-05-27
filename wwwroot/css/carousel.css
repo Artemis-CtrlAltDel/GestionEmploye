@@ -1,0 +1,18 @@
+.carousel-icon{
+    transition-duration: .2s;
+    background-color: rgb(var(--color));
+    box-shadow: 0 0 0 0.4rem rgba(var(--color),.1);
+    fill: white;
+}
+
+.carousel-inner p, h1, h2, h3, h4, h5, h6{
+    color: black;
+}
+
+.carousel-inner .card{
+    border: none;
+}
+
+body{
+    overflow: hidden;
+}
