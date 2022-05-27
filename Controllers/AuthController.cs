@@ -51,12 +51,12 @@ namespace GestionEmploye.Controllers
             var result1 = await _context.Employe.Include(nameof(Employe.Person)).FirstOrDefaultAsync(m => m.Person.Email == person.Email);
             if (result1 == null)
             {
-                ModelState.AddModelError("Email", "Email not found!");
+                ModelState.AddModelError("Email", "Email non trouvé!");
                 return View();
             }
             if (result1.Person.Password != person.Password)
             {
-                ModelState.AddModelError("Password", "Wrong password!");
+                ModelState.AddModelError("Password", "Mot de passe erroné!");
                 return View();
             }
             HttpContext.Session.SetInt32("PersonId", result1.Person.Id);
@@ -66,164 +66,11 @@ namespace GestionEmploye.Controllers
             return Redirect("/");
         }
 
-
-        // todo: remove this after finishing debuging
-        //      ||
-        //      ||
-        //     \  /
-        //      \/
-
-
-        // GET: Auth
-        public async Task<IActionResult> Index()
-        {
-            var appContext = _context.Person.Include(p => p.Admin).Include(p => p.Employe);
-            return View(await appContext.ToListAsync());
+        [Route("/logout")]
+        public IActionResult Logout(){
+            HttpContext.Session.Clear();
+            return RedirectToAction(nameof(Login));
         }
-
-        // GET: Auth/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Person == null)
-            {
-                return NotFound();
-            }
-
-            var person = await _context.Person
-                .Include(p => p.Admin)
-                .Include(p => p.Employe)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (person == null)
-            {
-                return NotFound();
-            }
-
-            return View(person);
-        }
-
-        // GET: Auth/Create
-        public IActionResult Create()
-        {
-            ViewData["EmployeId"] = new SelectList(_context.Admin, "Id", "Id");
-            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id");
-            return View();
-        }
-
-        // POST: Auth/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nom,Prenom,Email,Password,EmployeId,AdminId")] Person person)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(person);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["EmployeId"] = new SelectList(_context.Admin, "Id", "Id", person.EmployeId);
-            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id", person.EmployeId);
-            return View(person);
-        }
-
-        // GET: Auth/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Person == null)
-            {
-                return NotFound();
-            }
-
-            var person = await _context.Person.FindAsync(id);
-            if (person == null)
-            {
-                return NotFound();
-            }
-            ViewData["EmployeId"] = new SelectList(_context.Admin, "Id", "Id", person.EmployeId);
-            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id", person.EmployeId);
-            return View(person);
-        }
-
-        // POST: Auth/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nom,Prenom,Email,Password,EmployeId,AdminId")] Person person)
-        {
-            if (id != person.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(person);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PersonExists(person.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["EmployeId"] = new SelectList(_context.Admin, "Id", "Id", person.EmployeId);
-            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id", person.EmployeId);
-            return View(person);
-        }
-
-        // GET: Auth/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Person == null)
-            {
-                return NotFound();
-            }
-
-            var person = await _context.Person
-                .Include(p => p.Admin)
-                .Include(p => p.Employe)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (person == null)
-            {
-                return NotFound();
-            }
-
-            return View(person);
-        }
-
-        // POST: Auth/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Person == null)
-            {
-                return Problem("Entity set 'AppContext.Person'  is null.");
-            }
-            var person = await _context.Person.FindAsync(id);
-            if (person != null)
-            {
-                _context.Person.Remove(person);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool PersonExists(int id)
-        {
-            return (_context.Person?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+      
     }
 }
