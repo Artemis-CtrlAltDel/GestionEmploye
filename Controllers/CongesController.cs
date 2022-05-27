@@ -21,6 +21,11 @@ namespace GestionEmploye.Controllers
         public async Task<IActionResult> Index()
         {
             ViewData["Conges"] = await _context.Conge.Include(c => c.Employe.Person).ToListAsync();
+
+            //not admin
+            ViewData["Conges"] = await _context.Conge.Include(c => c.Employe.Person).ToListAsync();
+
+
             return View();
         }
 

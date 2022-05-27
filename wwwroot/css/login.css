@@ -34,19 +34,21 @@
     
 }
 
-.input-wrapper>.col>input{
+.input-wrapper>.col>input,
+.input-wrapper>.col>select
+{
     background-color: rgba(211, 211, 211, 0.15);
     border: 2px solid rgba(11, 94, 216, 0.5);
     width: 100%;
 }
 
-input{
+input, select{
     padding: 1.2em 0;
 }
 
-.alert{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    align-self: center;
-}
+/*.alert{*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    width: 100%;*/
+/*    align-self: center;*/
+/*}*/
