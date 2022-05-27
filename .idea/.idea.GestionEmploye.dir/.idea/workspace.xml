@@ -5,7 +5,15 @@
     <projectFile profileName="IIS Express">GestionEmploye.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2336d08-34a8-456c-9228-89bd7993e086" name="Changes" comment="" />
+    <list default="true" id="a2336d08-34a8-456c-9228-89bd7993e086" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/wwwroot/assets/bg-fire.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Conges/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Conges/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Conges/_Demande.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Conges/_Demande.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Salaries/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Salaries/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/css/formulaire.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/css/formulaire.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,6 +102,7 @@
       <workItem from="1653600294236" duration="4595000" />
       <workItem from="1653654564492" duration="185000" />
       <workItem from="1653657406500" duration="4725000" />
+      <workItem from="1653666547576" duration="1382000" />
     </task>
     <task id="LOCAL-00001" summary="bruh">
       <created>1653394727669</created>
