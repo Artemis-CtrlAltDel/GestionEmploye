@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GestionEmploye.Models;
+using GestionEmploye.Helpers;
 
 namespace GestionEmploye.Controllers
 {
@@ -18,13 +19,14 @@ namespace GestionEmploye.Controllers
             _context = context;
         }
 
-
+        [LoggedOutFilter]
         [HttpGet("/login/{*type}")]
         public IActionResult Login(string type)
         {
             return View();
         }
 
+        [LoggedOutFilter]
         [HttpPost("/login/{*type}")]
         public async Task<IActionResult> Login(string type, [Bind("Email,Password")] Person person)
         {
@@ -68,6 +70,7 @@ namespace GestionEmploye.Controllers
             return Redirect("/");
         }
 
+        [LoggedInFilter]
         [Route("/logout")]
         public IActionResult Logout(){
             HttpContext.Session.Clear();

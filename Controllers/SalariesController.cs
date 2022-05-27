@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GestionEmploye.Models;
+using GestionEmploye.Helpers;
 
 namespace GestionEmploye.Controllers
 {
+    [AdminOnlyFilter]
     public class SalariesController : Controller
     {
         private readonly AppContext _context;
