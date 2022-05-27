@@ -19,7 +19,7 @@
     <hr class="sep" />
 </div>
 
-@if (isAdmin)
+@if (isAdmin && ((List<Conge>)ViewData["Conges"]).Any(c => c.Duration < 30))
 {
     <form asp-action="Reset">
         <button class="btn btn-outline-primary float-end">Reset Quota</button>
