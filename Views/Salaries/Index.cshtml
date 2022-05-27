@@ -11,7 +11,7 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="card-body" style="padding: 0; border-radius: 12px;background-color: rgba(252, 66, 123,1.0);">
+<div class="card-body" style="padding: 0; border-radius: 12px;background-color: rgba(44, 58, 71,1.0);">
     <div class="card-body">
         <h2 class="card-title">Formulaire de paiement</h2>
         <hr class="sep"/>
@@ -37,7 +37,7 @@
                 <div class="input-wrapper input-group mb-3">
                     <!-- TODO -->
                     <div class="col">
-                        <input asp-for="Month" class="form-control" type="month" style="text-transform: capitalize; color:  white"/>
+                        <input asp-for="Month" class="form-control" type="month" style="color:  white"/>
                         <span asp-validation-for="Month" class="text-danger"></span>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                 <div class="input-wrapper input-group mb-3">
                     <!-- TODO -->
                     <div class="col">
-                        <select asp-for="Status" class="form-control" asp-items="ViewBag.StatusList" style="text-transform: capitalize; color:  white"></select>
+                        <select asp-for="Status" class="form-control" asp-items="ViewBag.StatusList" style="color:  white"></select>
                         <span asp-validation-for="Status" class="text-danger"></span>
                     </div>
                 </div>
