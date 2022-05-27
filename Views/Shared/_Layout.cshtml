@@ -65,7 +65,7 @@
                             <li class="nav-item">
                                 <a class="nav-link py-2 mx-2 px-4"
                                 style='@(Context.Request.Path.ToString().ToLower().StartsWith("/employees") ? "background-color: #0d6efd29;":"")'
-                                asp-area="" asp-controller="Employees" asp-action="Index">Profile</a>
+                                asp-area="" asp-controller="Employees" asp-action="Details"  asp-route-id='@Context.Session.GetInt32("EmployeId")'>Profile</a>
                             </li>
                         }
                     </ul>

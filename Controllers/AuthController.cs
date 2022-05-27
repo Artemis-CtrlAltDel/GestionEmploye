@@ -44,8 +44,9 @@ namespace GestionEmploye.Controllers
                 HttpContext.Session.SetInt32("PersonId", result.Person.Id);
                 HttpContext.Session.SetString("Nom", result.Person.Nom);
                 HttpContext.Session.SetString("Prenom", result.Person.Prenom);
+                HttpContext.Session.SetInt32("AdminId", result.Id);
                 HttpContext.Session.SetInt32("Admin", 1);
-                Redirect("/");
+                return Redirect("/");
             }
 
             var result1 = await _context.Employe.Include(nameof(Employe.Person)).FirstOrDefaultAsync(m => m.Person.Email == person.Email);
@@ -62,6 +63,7 @@ namespace GestionEmploye.Controllers
             HttpContext.Session.SetInt32("PersonId", result1.Person.Id);
             HttpContext.Session.SetString("Nom", result1.Person.Nom);
             HttpContext.Session.SetString("Prenom", result1.Person.Prenom);
+            HttpContext.Session.SetInt32("EmployeId", result1.Id);
             HttpContext.Session.SetInt32("Admin", 0);
             return Redirect("/");
         }

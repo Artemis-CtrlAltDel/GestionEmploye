@@ -29,8 +29,17 @@ public class AdminController : Controller
     }
 
 
-    // public IActionResult Create(){
-
-    //     return 
-    // }
+    public string Create(){
+        _context.Admin
+        .Add(new Admin() {
+            Person = new Person(){
+                Nom = "Admin",
+                Prenom = "Admin",
+                Email = "admin@gmail.com",
+                Password = "adminadmin",
+            }
+        });
+        _context.SaveChanges();
+        return "done";
+    }
 }

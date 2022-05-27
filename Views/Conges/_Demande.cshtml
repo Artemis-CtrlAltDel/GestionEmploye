@@ -1,48 +1,39 @@
 @model GestionEmploye.Models.Conge
 
-<div class="card-body" style="padding: 0; border-radius: 12px;background-color: rgba(44, 58, 71,1.0);">
+<div class="card card-body" style="padding: 0; border-radius: 12px;">
     <div class="card-body">
         <h2 class="card-title">Formulaire de congé</h2>
-        <hr class="sep"/>
+        <hr class="sep" />
     </div>
-    
+
     <form asp-action="Create" class="card-body d-flex align-items-center justify-content-between gap-3"
-          style="color: white;margin-top: -50px; border-radius: 12px; padding: 0 50px;padding-top: 50px; padding-bottom: 20px">
-        
+        style="border-radius: 12px; padding: 0 50px; padding-bottom: 20px">
+
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        
-        <label asp-for="Date" class="label control-label"></label>
-        <div class="input-wrapper input-group mb-3">
-            <!-- TODO -->
-            <div class="col">
-                <input asp-for="Date" class="form-control"
-                       style="color:  white"/>
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
-        </div>
-        
-        <label asp-for="Duration" class="label control-label"></label>
-        <div class="input-wrapper input-group mb-3">
-            <!-- TODO -->
-            <div class="col">
-                <input asp-for="Duration" class="form-control"
-                       style="color:  white"/>
-                <span asp-validation-for="Duration" class="text-danger"></span>
-            </div>
+
+        <label asp-for="Date" class="control-label"></label>
+        <div style="flex:1">
+            <input asp-for="Date" class="form-control" />
+            <span asp-validation-for="Date" class="text-danger"></span>
         </div>
 
-        <div class="input-group mb-3" style="margin-top: -10px;width: 100%;padding: 10px 0;border-radius: 5px">
-            <input type="submit" value="Demander" class="icon btn btn-primary" style="background-color: var(--primary-color);padding: 10px 30px"/>
+        <label asp-for="Duration" class="control-label"></label>
+        <div style="flex:1">
+            <input asp-for="Duration" class="form-control" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
         </div>
-        
+
+        <input type="submit" value="Demander" class="icon btn btn-primary"
+            style="background-color: var(--primary-color);padding: 10px 30px" />
+
     </form>
-    
+
 
 </div>
-    <div class="alert alert-warning mt-4 d-flex align-items-center justify-content-between">
-        <p class="m-0">Vous avez une demande en attente</p>
-        <button class="btn btn-outline-secondary">Annuler</button>
-    </div>
+<div class="alert alert-warning mt-4 d-flex align-items-center justify-content-between">
+    <p class="m-0">Vous avez une demande en attente</p>
+    <button class="btn btn-outline-secondary">Annuler</button>
+</div>
 
 @section Scripts {
 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
