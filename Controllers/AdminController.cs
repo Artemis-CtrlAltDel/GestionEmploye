@@ -6,7 +6,7 @@ using GestionEmploye.Helpers;
 namespace GestionEmploye.Controllers;
 
 
-// [AuthorizationFilter("Admin")]
+[AdminOnlyFilter]
 public class AdminController : Controller
 {
     private readonly AppContext _context;

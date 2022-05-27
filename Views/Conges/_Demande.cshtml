@@ -4,50 +4,61 @@
     var pendingConge = ((List<Conge>)ViewData["Conges"]).Find(c => c.Status == "Pending");
 }
 
-@if (pendingConge == null)
+@if (ViewBag.Employee.CongeRemaining == 0)
 {
-    <div class="card card-body" style="padding: 0; border-radius: 12px;">
-        <div class="card-body">
-            <h2 class="card-title">Formulaire de congé</h2>
-            <hr class="sep" />
-        </div>
-
-        <form asp-action="Create" class="card-body d-flex align-items-center justify-content-between gap-3"
-        style="border-radius: 12px; padding: 0 50px; padding-bottom: 20px">
-
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <label asp-for="Date" class="control-label"></label>
-            <div style="flex:1">
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
-
-            <label asp-for="Duration" class="control-label"></label>
-            <div style="flex:1">
-                <input asp-for="Duration" class="form-control" />
-                <span asp-validation-for="Duration" class="text-danger"></span>
-            </div>
-
-            <input type="submit" value="Demander" class="icon btn btn-primary"
-            style="background-color: var(--primary-color);padding: 10px 30px" />
-
-        </form>
-
-
+    <div class="alert alert-danger mt-4">
+        <p class="m-0">Vous avez atteint la limite des demandes de congés</p>
     </div>
 }
 else
 {
-    <div class="alert alert-warning mt-4 d-flex align-items-center justify-content-between">
-        <p class="m-0">Vous avez une demande en attente</p>
-        <form asp-action="Delete" asp-controller="Conges">
-            <input type="hidden" name="Id" asp-for="@pendingConge.Id"/>
-            <button class="btn btn-outline-secondary">Annuler</button>
-        </form>
-    </div>
-}
 
+    @if (pendingConge == null)
+    {
+        <div class="card card-body"
+    style="border: 1px solid rgba(0,0,0,.125);padding: 0;padding-bottom:1.7rem; border-radius: 12px;">
+            <div class="card-body">
+                <h2 class="card-title">Formulaire de congé</h2>
+                <hr class="sep" />
+            </div>
+
+            <form asp-action="Create" class="card-body d-flex align-items-center justify-content-between gap-3"
+        style="border-radius: 12px; padding: 0 50px; padding-bottom: 20px">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <label asp-for="Date" class="control-label"></label>
+                <div style="flex:1">
+                    <input asp-for="Date" class="form-control" />
+                </div>
+
+                <label asp-for="Duration" class="control-label"></label>
+                <div style="flex:1">
+                    <input asp-for="Duration" class="form-control" />
+                </div>
+
+                <input type="submit" value="Demander" class="icon btn btn-primary"
+            style="background-color: var(--primary-color);padding: 10px 30px" />
+
+            </form>
+            <span asp-validation-for="Date" class="text-danger text-center"></span>
+            <span asp-validation-for="Duration" class="text-danger text-center"></span>
+
+
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning mt-4 d-flex align-items-center justify-content-between">
+            <p class="m-0">Vous avez une demande en attente</p>
+            <form asp-action="Delete" asp-controller="Conges">
+                <input type="hidden" name="Id" asp-for="@pendingConge.Id" />
+                <button class="btn btn-outline-secondary">Annuler</button>
+            </form>
+        </div>
+    }
+
+}
 @section Scripts {
 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

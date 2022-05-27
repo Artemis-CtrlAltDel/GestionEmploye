@@ -1,9 +1,11 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using GestionEmploye.Models;
+using GestionEmploye.Helpers;
 
 namespace GestionEmploye.Controllers;
 
+[LoggedOutFilter]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -14,11 +16,6 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
     {
         return View();
     }

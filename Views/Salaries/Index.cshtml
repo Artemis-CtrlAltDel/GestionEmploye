@@ -11,13 +11,13 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="card-body" style="padding: 0; border-radius: 12px;background-color: rgba(44, 58, 71,1.0);">
+<div class="card-body" style="padding: 0; border-radius: 12px;background-color: white;">
     <div class="card-body">
         <h2 class="card-title">Formulaire de paiement</h2>
         <hr class="sep"/>
     </div>
     
-    <form asp-action="Create" class="card-body mb-3" style="color: white;margin-top: -50px; border-radius: 12px; padding: 0 50px;padding-top: 50px; padding-bottom: 20px">
+    <form asp-action="Create" class="card-body mb-3" style="color: black;margin-top: -50px; border-radius: 12px; padding: 0 50px;padding-top: 50px; padding-bottom: 20px">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     
         <div class="form-group">
@@ -26,7 +26,7 @@
                 <!-- TODO -->
                 <div class="col">
                     <select asp-for="EmployeId" class="form-control" asp-items="ViewBag.EmployeId"
-                            style="text-transform: capitalize; color:  white">
+                            style="text-transform: capitalize; color:  black">
                     </select>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="input-wrapper input-group mb-3">
                     <!-- TODO -->
                     <div class="col">
-                        <input asp-for="Month" class="form-control" type="month" style="color:  white"/>
+                        <input asp-for="Month" class="form-control" type="month" style="color:  black"/>
                         <span asp-validation-for="Month" class="text-danger"></span>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                 <div class="input-wrapper input-group mb-3">
                     <!-- TODO -->
                     <div class="col">
-                        <select asp-for="Status" class="form-control" asp-items="ViewBag.StatusList" style="color:  white"></select>
+                        <select asp-for="Status" class="form-control" asp-items="ViewBag.StatusList" style="color:  black"></select>
                         <span asp-validation-for="Status" class="text-danger"></span>
                     </div>
                 </div>

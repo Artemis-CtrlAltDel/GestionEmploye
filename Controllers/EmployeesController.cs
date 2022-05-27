@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GestionEmploye.Models;
+using GestionEmploye.Helpers;
 
 namespace GestionEmploye.Controllers
 {
@@ -18,14 +14,14 @@ namespace GestionEmploye.Controllers
             _context = context;
         }
 
-
+        [AdminOnlyFilter]
         public async Task<IActionResult> Index()
         {
             ViewData["Employees"] = await _context.Employe.Include(nameof(Person)).ToListAsync();
             return View();
         }
 
-
+        [LoggedInFilter]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Employe == null)
@@ -46,13 +42,13 @@ namespace GestionEmploye.Controllers
             return View(employe);
         }
 
-
+        [AdminOnlyFilter]
         public IActionResult Create()
         {
             return View();
         }
 
-        
+        [AdminOnlyFilter]
         [HttpPost]
         public async Task<IActionResult> Create(Employe employe)
         {
@@ -65,13 +61,14 @@ namespace GestionEmploye.Controllers
             return View(employe);
         }
 
-
+        [LoggedInFilter]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Employe == null)
+            if (id != HttpContext.Session.GetInt32("EmployeId"))
             {
-                return NotFound();
+                return Redirect("/");
             }
+
 
             var employe = await _context.Employe.Include(nameof(Person)).FirstOrDefaultAsync(i => i.Id == id);
             if (employe == null)
@@ -81,13 +78,13 @@ namespace GestionEmploye.Controllers
             return View(employe);
         }
 
-        
+        [LoggedInFilter]
         [HttpPost]
         public async Task<IActionResult> Edit(int id,Employe employe)
         {
-            if (id != employe.Id)
+            if (id != employe.Id || id != HttpContext.Session.GetInt32("EmployeId"))
             {
-                return NotFound();
+                return Redirect("/");
             }
 
             if (ModelState.IsValid)
@@ -106,7 +103,7 @@ namespace GestionEmploye.Controllers
             return View(employe);
         }
 
-        
+        [AdminOnlyFilter]
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {

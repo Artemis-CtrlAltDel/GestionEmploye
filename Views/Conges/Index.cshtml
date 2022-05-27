@@ -1,12 +1,12 @@
 @model IEnumerable<GestionEmploye.Models.Conge>
 
+<link href="@Url.Content("~/css/admin.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/css/employe.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/css/salary.css")" rel="stylesheet" type="text/css" />
 
 @{
     ViewData["Title"] = "Index";
     var isAdmin = Context.Session.GetInt32("Admin") == 1;
-    var isLoggedIn = Context.Session.GetInt32("Admin") != null;
 }
 
 @if (!isAdmin)
@@ -18,6 +18,14 @@
     <h2 class="card-title">@(isAdmin ? "Liste":"Historique") des Congés</h2>
     <hr class="sep" />
 </div>
+
+@if (isAdmin)
+{
+    <form asp-action="Reset">
+        <button class="btn btn-outline-primary float-end">Reset Quota</button>
+    </form>
+}
+
 <div class="card" style="margin-top: 3.0em;">
 
     <div class="conge-list card-body">
