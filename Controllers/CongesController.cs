@@ -23,6 +23,7 @@ namespace GestionEmploye.Controllers
             if(HttpContext.Session.GetInt32("Admin") == 1){
                 ViewData["Conges"] = await _context.Conge.Include(c => c.Employe.Person).ToListAsync();
             }else{
+                ViewData["PendingId"] = 
                 ViewData["Conges"] = await _context.Conge.Where(m => m.EmployeId == HttpContext.Session.GetInt32("EmployeId")).ToListAsync();
             }
 
@@ -39,8 +40,13 @@ namespace GestionEmploye.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Id,Date,DemandeTime,Duration,Status,EmployeId")] Conge conge)
+        public async Task<IActionResult> Create([Bind("Date,Duration")] Conge conge)
         {
+            conge.Status = "Pending";
+            var EmployeId = HttpContext.Session.GetInt32("EmployeId");
+            if(EmployeId == null) return Problem();
+
+            conge.EmployeId = (int)EmployeId;
             if (ModelState.IsValid)
             {
                 _context.Add(conge);
