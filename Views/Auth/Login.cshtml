@@ -6,16 +6,17 @@
 
 <link href="@Url.Content("~/css/login.css")" rel="stylesheet" type="text/css" />
 
-<div class="card">
+<div class="card" style="width: min(600px, 90vh); margin: auto; margin-top: 10ch">
     <div class="card-body">
-        <h1 class="card-title">Form de connexion</h1>
+        <h1 class="card-title">Connexion</h1>
+        <h3 class="card-subtitle" style="opacity: .8">Administrateur</h3>
     </div>
     <form asp-controller="Auth" asp-action="Login" class="card-body">
         <span class="label input-group-text" id="basic-addon1">
             Email
         </span>
         <div class="input-wrapper input-group mb-3">
-            <!-- TODO -->
+            
             <div class="col">
                 <input asp-for="Email" type="text" class="form-control" placeholder="Entrer votre Email | eg : prenom.nom@xyz.com" aria-label="email" aria-describedby="basic-addon1"/>
                 <div>
@@ -30,7 +31,6 @@
             Mot de passe
         </span>
         <div class="input-wrapper input-group mb-3">
-            <!-- TODO -->
             <div class="col">
                 <input asp-for="Password" type="password" class="form-control" placeholder="Entrer votre Mot de passe" aria-label="prenom" aria-describedby="basic-addon2"/>
                 <div>
@@ -44,5 +44,7 @@
         <div class="input-group mb-3" style="width: 100%;margin-top: 30px">
             <input type="submit" value="Se connecter" class="submit form-control btn btn-primary" style="width: 100%"/>
         </div>
+        <p class="card-subtitle">Vous disposez d'un compte ADMIN ? <a href="test.com">Cliquez ici layn3l tbon mok</a></p>
+        
     </form>
 </div>
