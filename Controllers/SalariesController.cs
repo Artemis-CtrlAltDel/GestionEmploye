@@ -37,14 +37,6 @@ namespace GestionEmploye.Controllers
             return View();
         }
 
-        
-
-        public IActionResult Create()
-        {
-            ViewData["EmployeId"] = new SelectList(_context.Employe, "Id", "Id");
-            return View();
-        }
-
         [HttpPost]
         public async Task<IActionResult> Create(Salary salary,float deductionsPerAbsent)
         {
