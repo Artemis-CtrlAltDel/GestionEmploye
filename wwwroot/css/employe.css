@@ -60,7 +60,10 @@ td, th{
     fill: rgb(var(--color));
 }
 
-
+.icon.active{
+    fill: white;
+    background-color: rgb(var(--color));
+}
 
 .card-body{
     padding: 0;
