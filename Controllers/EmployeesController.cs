@@ -29,7 +29,7 @@ namespace GestionEmploye.Controllers
                 return NotFound();
             }
 
-            var employe = await _context.Employe.Include(nameof(Person)).Include(m=> m.Conges).Include(m=> m.Salaries)
+            var employe = await _context.Employe.Include(nameof(Person)).Include(m=> m.Conges).Include(m=> m.Salaries).Include(m=> m.Absences)
                 .FirstOrDefaultAsync(m => m.Id == id);
             
             if (employe == null)

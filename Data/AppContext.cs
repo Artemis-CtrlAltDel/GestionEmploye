@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 using Microsoft.EntityFrameworkCore;
 using GestionEmploye.Models;
 
@@ -25,6 +22,7 @@ public class AppContext : DbContext
         .WithOne(i => i.Admin)
         .HasForeignKey<Person>(b => b.AdminId)
         .OnDelete(DeleteBehavior.Cascade);
+        
 
         var conge = modelBuilder.Entity<Conge>();
         conge
@@ -41,6 +39,10 @@ public class AppContext : DbContext
         .WithMany(i => i.Salaries)
         .HasForeignKey(b => b.EmployeId);
 
+        modelBuilder.Entity<Absence>()
+        .HasOne(b => b.Employe)
+        .WithMany(i => i.Absences)
+        .HasForeignKey(i => i.EmployeId);
 
     }
 
@@ -50,5 +52,6 @@ public class AppContext : DbContext
 
     public DbSet<Conge> Conge { get; set; }
     public DbSet<Salary> Salary { get; set; }
+    public DbSet<Absence> Absence { get; set; }
 
 }

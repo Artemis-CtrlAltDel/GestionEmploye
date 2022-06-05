@@ -26,5 +26,7 @@ namespace GestionEmploye.Models
         public ICollection<Conge> Conges { get; set; }
         
         public ICollection<Salary> Salaries { get; set; }
+
+        public ICollection<Absence> Absences { get; set; }
     }
 }
