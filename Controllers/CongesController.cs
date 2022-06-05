@@ -53,6 +53,7 @@ namespace GestionEmploye.Controllers
                 _context.Update(employe);
                 await _context.SaveChangesAsync();
             }
+            ViewData["Employee"] = await _context.Employe.FirstOrDefaultAsync(i => i.Id == HttpContext.Session.GetInt32("EmployeId"));
             ViewData["Conges"] = await _context.Conge.Where(m => m.EmployeId == HttpContext.Session.GetInt32("EmployeId")).ToListAsync();
             return View("Index");
         }
