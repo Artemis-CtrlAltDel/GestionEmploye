@@ -6,9 +6,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2336d08-34a8-456c-9228-89bd7993e086" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_24_2022_12_35_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_24_2022_12_35_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_25_2022_8_45_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_25_2022_8_45_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_26_2022_10_42_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_26_2022_10_42_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_26_2022_4_15_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_26_2022_4_15_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Auth/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Auth/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +108,8 @@
       <workItem from="1653680906040" duration="973000" />
       <workItem from="1653687595501" duration="690000" />
       <workItem from="1653690399801" duration="3172000" />
-      <workItem from="1653767589979" duration="1048000" />
+      <workItem from="1653767589979" duration="1137000" />
+      <workItem from="1654374806169" duration="1211000" />
     </task>
     <task id="LOCAL-00001" summary="bruh">
       <created>1653394727669</created>
@@ -342,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653693046895</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary=":)">
+      <created>1653768728301</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1653768728301</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
