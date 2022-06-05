@@ -11,7 +11,7 @@
 }
 
 <div class="sticky-icons"
-     style="position: fixed; z-index: 99; border: 1px solid black; width: fit-content; right: 0;display: flex;flex-direction: column; align-items: flex-end;" >
+     style="position: fixed; z-index: 99; width: fit-content; right: 0;display: flex;flex-direction: column; align-items: flex-end; border-radius: 5px; border-right: 5px solid var(--primary-color)" >
     <a href="#employeSection">Employés</a>
     <a href="#congeSection">Congés</a>
     <a href="#paymentSection">Paiements</a>
@@ -84,6 +84,7 @@
                     <th scope="col">E-mail</th>
                     <th scope="col">Durée congé</th>
                     <th scope="col">Montant salaire</th>
+                    <th scope="col">Total d'absences</th>
                 </tr>
                 </thead>
 
@@ -97,6 +98,7 @@
                         <td>@employe.Person.Email</td>
                         <td>@employe.CongeRemaining</td>
                         <td>@employe.CurrentSalary</td>
+                        <td>@employe.Absences.Where(i=>i.Date.ToString("MM/yyyy") == DateTime.Now.ToString("MM/yyyy")).Count()</td>
                     </tr>
                 }
                 </tbody>
