@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Login";
-    var isAdmin = Context.Session.GetInt32("Admin") == 1;
+    var isAdmin = Context.Request.Path.ToString().ToLower().Contains("/admin");
 }
 
 <link href="@Url.Content("~/css/login.css")" rel="stylesheet" type="text/css" />
@@ -11,7 +11,7 @@
     <div class="card-body">
         <h1 class="card-title">Connexion</h1>
         <h3 class="card-subtitle" style="opacity: .8">
-            @(isAdmin ? "Administrateur":"Employer")
+            @(isAdmin ? "Administrateur":"Employe")
         </h3>
     </div>
     <form asp-controller="Auth" asp-action="Login" class="card-body">
@@ -48,9 +48,15 @@
             <input type="submit" value="Se connecter" class="submit form-control btn btn-primary" style="width: 100%"/>
         </div>
         
-        <p class="card-subtitle my-3 fw-bold">
-            @(isAdmin ? "Vous disposez d'un compte ADMIN ?"+"<a href=\"test.com\">Cliquez ici</a>":"")
-        </p>
+            @if(isAdmin){
+                <p class="card-subtitle my-3">
+                    Vous disposez d'un compte employe ? <a href="/login">Cliquez ici</a>
+                </p>
+            }else{
+                <p class="card-subtitle my-3">
+                    Vous disposez d'un compte admin ? <a href="/login/admin">Cliquez ici</a>
+                </p>
+            }
         
     </form>
 </div>
