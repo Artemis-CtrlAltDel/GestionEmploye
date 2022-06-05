@@ -66,7 +66,7 @@ namespace GestionEmploye.Controllers
         [LoggedInFilter]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id != HttpContext.Session.GetInt32("EmployeId"))
+            if (id != HttpContext.Session.GetInt32("EmployeId") && HttpContext.Session.GetInt32("Admin") != 1)
             {
                 return Redirect("/");
             }
