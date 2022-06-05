@@ -38,6 +38,8 @@ namespace GestionEmploye.Controllers
             }
 
             ViewData["Employee"] = employe;
+            ViewData["TotalAbsences"] = employe.Absences.Count();
+            ViewData["TotalAbsencesThisMonth"] = employe.Absences.Where(i=>i.Date.ToString("MM/yyyy") == DateTime.Now.ToString("MM/yyyy")).Count();
 
             return View(employe);
         }
