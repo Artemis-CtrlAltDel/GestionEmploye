@@ -7,7 +7,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a2336d08-34a8-456c-9228-89bd7993e086" name="Changes" comment="bruh">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Admin/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Admin/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Conges/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Conges/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Employees/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Employees/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Employees/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Employees/Edit.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Employees/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Employees/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +31,7 @@
     <setting file="mock://C:/Users/ASUS/Desktop/GestionEmploye/Views/Admin/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/ASUS/Desktop/GestionEmploye/Views/Employees/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/ASUS/Desktop/GestionEmploye/Views/Admin/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ASUS/Desktop/GestionEmploye/Views/Employees/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -369,7 +375,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654458599118</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="bruh">
+      <created>1654460399555</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1654460399555</updated>
+    </task>
+    <task id="LOCAL-00039" summary="bruh">
+      <created>1654460586715</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1654460586715</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
