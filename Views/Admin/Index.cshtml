@@ -6,6 +6,13 @@
 @*     <p>@employe.Person.Nom</p> *@
 @* } *@
 
+<div class="sticky-icons"
+     style="position: fixed; z-index: 99; border: 1px solid black; width: fit-content; right: 0;display: flex;flex-direction: column; align-items: flex-end;" >
+    <a href="#employeSection">Employés</a>
+    <a href="#congeSection">Congés</a>
+    <a href="#paymentSection">Paiements</a>
+</div>
+
 <h2>Dashboard</h2>
 <div class="d-flex gap-3 flex-wrap">
     <div class="admin-card p-4">
@@ -56,7 +63,7 @@
 </div>
 
 <div class="list card">
-    <div class="card-body">
+    <div class="card-body" id="employeSection">
         <h2 class="card-title">Liste des Employés</h2>
         <hr class="sep"/>
     </div>
@@ -101,7 +108,7 @@
 </div>
 
 <div class="card" style="margin-top: 3.0em;background-color: transparent">
-    <div class="card-body">
+    <div class="card-body" id="congeSection">
         <h2 class="card-title">Liste des Congés</h2>
         <hr class="sep"/>
     </div>
@@ -287,7 +294,7 @@
 </div>
 
 <div class="list card">
-    <div class="card-body">
+    <div class="card-body" id="paymentSection">
         <h2 class="card-title">Liste des Paiements</h2>
         <hr class="sep"/>
     </div>
