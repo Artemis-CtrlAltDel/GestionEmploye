@@ -46,13 +46,17 @@ namespace GestionEmploye.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Salary salary)
+        public async Task<IActionResult> Create(Salary salary,float deductionsPerAbsent)
         {
-            salary.Amount = _context.Employe.Find(salary.EmployeId).CurrentSalary;
+
             if (await _context.Salary.AnyAsync(m => m.Month == salary.Month && m.EmployeId == salary.EmployeId)){
                 return Redirect("/salaries?dupErr=1");
             }
-
+            var employe = _context.Employe.Include(i=>i.Absences).FirstOrDefault(i => i.Id == salary.EmployeId);
+            var amount = employe.CurrentSalary - employe.Absences.Where(i=>i.Date.ToString("MM/yyyy") == salary.Month.ToString("MM/yyyy")).Count() * deductionsPerAbsent;
+            amount = amount < 0 ? 0: amount;
+            salary.Amount = amount;
+            
             if (ModelState.IsValid)
             {
                 _context.Add(salary);
