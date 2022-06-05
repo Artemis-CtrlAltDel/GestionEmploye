@@ -16,7 +16,7 @@
 }
 
 <div class="sticky-icons"
-     style="position: fixed; z-index: 99; border: 1px solid black; width: fit-content; right: 0;display: flex;flex-direction: column; align-items: flex-end;" >
+     style="position: fixed; z-index: 99; width: fit-content; right: 0;display: flex;flex-direction: column; align-items: flex-end; border-radius: 5px; border-right: 5px solid var(--primary-color)">
     <a href="#congeSection">Congés</a>
     <a href="#paymentSection">Paiements</a>
 </div>
@@ -108,7 +108,7 @@
         <div class="col-6">
             <div class="card-wrapper" style="background-color: white">
                 <div class="p-3 font-monospace">
-                    <span class="card-title title-to-left fw-bold">Total d'abscences ( @DateTime.Now.Month.ToString("D2")/@DateTime.Now.Year ) </span>
+                    <span class="card-title title-to-left fw-bold">Total d'abscences ( @DateTime.Now.Month.ToString("D2") - @DateTime.Now.Year ) </span>
                     <svg height="16" width="16" style="fill: var(--primary-color)" xmlns="http://www.w3.org/2000/svg"
                          viewBox="0 0 256 512">
                         <path

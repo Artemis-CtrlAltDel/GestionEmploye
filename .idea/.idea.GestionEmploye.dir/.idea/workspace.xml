@@ -6,8 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2336d08-34a8-456c-9228-89bd7993e086" name="Changes" comment="bruh">
+      <change beforePath="$PROJECT_DIR$/.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/.db-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/.db-wal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Employees/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Employees/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Employees/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Employees/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/css/root.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/css/root.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -405,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654464863766</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="bruh">
+      <created>1654465898133</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1654465898133</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
