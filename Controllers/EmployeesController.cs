@@ -17,7 +17,7 @@ namespace GestionEmploye.Controllers
         [AdminOnlyFilter]
         public async Task<IActionResult> Index()
         {
-            ViewData["Employees"] = await _context.Employe.Include(nameof(Person)).ToListAsync();
+            ViewData["Employees"] = await _context.Employe.Include(nameof(Person)).Include(i=>i.Absences).ToListAsync();
             return View();
         }
 
