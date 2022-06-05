@@ -23,7 +23,6 @@
         <div class="form-group">
             <label asp-for="EmployeId" class="label control-label"></label>
             <div class="input-wrapper input-group mb-3">
-                <!-- TODO -->
                 <div class="col">
                     <select asp-for="EmployeId" class="form-control" asp-items="ViewBag.EmployeId"
                             style="text-transform: capitalize; color:  black">
@@ -35,7 +34,6 @@
             <div class="form-group flex-grow-1">
                 <label asp-for="Month" class="label control-label"></label>
                 <div class="input-wrapper input-group mb-3">
-                    <!-- TODO -->
                     <div class="col">
                         <input asp-for="Month" class="form-control" type="month" style="color:  black"/>
                         <span asp-validation-for="Month" class="text-danger"></span>
@@ -45,10 +43,17 @@
             <div class="form-group flex-grow-1">
                 <label asp-for="Status" class="label control-label"></label>
                 <div class="input-wrapper input-group mb-3">
-                    <!-- TODO -->
                     <div class="col">
                         <select asp-for="Status" class="form-control" asp-items="ViewBag.StatusList" style="color:  black"></select>
                         <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group flex-grow-1">
+                <label class="label control-label">Déductions(DH)/Absence</label>
+                <div class="input-wrapper input-group mb-3">
+                    <div class="col">
+                        <input name="deductionsPerAbsent" class="form-control" type="number" style="color:  black" value="50"/>
                     </div>
                 </div>
             </div>
