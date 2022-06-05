@@ -6,15 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2336d08-34a8-456c-9228-89bd7993e086" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_24_2022_12_35_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_24_2022_12_35_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_25_2022_8_45_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_25_2022_8_45_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_26_2022_10_42_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_26_2022_10_42_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_26_2022_4_15_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/shelf/Uncommitted_changes_before_Update_at_5_26_2022_4_15_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Auth/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Auth/Login.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +103,7 @@
       <workItem from="1653690399801" duration="3172000" />
       <workItem from="1653767589979" duration="1137000" />
       <workItem from="1654374806169" duration="1211000" />
+      <workItem from="1654449438196" duration="2480000" />
     </task>
     <task id="LOCAL-00001" summary="bruh">
       <created>1653394727669</created>
