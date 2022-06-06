@@ -41,12 +41,20 @@ namespace GestionEmploye.Controllers
             if(EmployeId == null) return Problem();
             var employe = _context.Employe.Find(EmployeId);
             if(employe.CongeRemaining < conge.Duration){
-                ViewData["Employee"] = await _context.Employe.FirstOrDefaultAsync(i => i.Id == HttpContext.Session.GetInt32("EmployeId"));
+                ViewData["Employee"] = await _context.Employe.Include(i=>i.Conges).FirstOrDefaultAsync(i => i.Id == HttpContext.Session.GetInt32("EmployeId"));
                 ViewData["Conges"] = await _context.Conge.Where(m => m.EmployeId == HttpContext.Session.GetInt32("EmployeId")).ToListAsync();
                 ModelState.AddModelError("Duration",$"Vous avez {employe.CongeRemaining} jours restants");
                 return View("Index");
             }
-            
+
+            if (conge.Date.Ticks <= DateTime.Now.Ticks)
+            {
+                ViewData["Employee"] = await _context.Employe.FirstOrDefaultAsync(i => i.Id == HttpContext.Session.GetInt32("EmployeId"));
+                ViewData["Conges"] = await _context.Conge.Where(m => m.EmployeId == HttpContext.Session.GetInt32("EmployeId")).ToListAsync();
+                ModelState.AddModelError("Duration",$"Vous ne pouvez pas choisir une date ancienne.");
+                return View("Index");
+            }
+
             conge.EmployeId = (int)EmployeId;
             if (ModelState.IsValid)
             {
