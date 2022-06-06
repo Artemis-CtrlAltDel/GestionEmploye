@@ -27,6 +27,11 @@
                 <span asp-validation-for="Person.Prenom" class="text-danger"></span>
             </div>
             }
+            else{
+                <input asp-for="Person.Nom" class="form-control" type="hidden"/>
+                <input asp-for="Person.Prenom" class="form-control" type="hidden"/>
+            }
+            <input asp-for="CongeRemaining" class="form-control" type="hidden"/>
             <div class="form-group">
                 <label asp-for="Person.Email" class="control-label"></label>
                 <input asp-for="Person.Email" class="form-control" />
@@ -43,6 +48,8 @@
                 <input asp-for="CurrentSalary" class="form-control" />
                 <span asp-validation-for="CurrentSalary" class="text-danger"></span>
             </div>
+            }else{
+                <input asp-for="CurrentSalary" class="form-control" type="hidden"/>
             }
             <div class="form-group mt-4 d-flex gap-3">
                 <input type="submit" value="Editer" class="btn btn-primary px-4" />
