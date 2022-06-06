@@ -86,6 +86,8 @@ namespace GestionEmploye.Controllers
             var conge = await _context.Conge.FindAsync(id);
             if (conge.Status == "Pending"){
                 conge.Status = "Declined";
+                var emp = await _context.Employe.FindAsync(conge.EmployeId);
+                emp.CongeRemaining += conge.Duration;
                 _context.Update(conge);
                 await _context.SaveChangesAsync();
             }
