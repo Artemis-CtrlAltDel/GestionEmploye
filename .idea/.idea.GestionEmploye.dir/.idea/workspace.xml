@@ -5,12 +5,11 @@
     <projectFile profileName="IIS Express">GestionEmploye.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2336d08-34a8-456c-9228-89bd7993e086" name="Changes" comment="bruh">
+    <list default="true" id="a2336d08-34a8-456c-9228-89bd7993e086" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.db" beforeDir="false" afterPath="$PROJECT_DIR$/.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.db-shm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.db-wal" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GestionEmploye.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,12 +23,6 @@
         <option value="CSS File" />
       </list>
     </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/ASUS/Desktop/GestionEmploye/Views/Admin/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ASUS/Desktop/GestionEmploye/Views/Employees/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ASUS/Desktop/GestionEmploye/Views/Admin/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ASUS/Desktop/GestionEmploye/Views/Employees/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -113,6 +106,7 @@
       <workItem from="1653767589979" duration="1137000" />
       <workItem from="1654374806169" duration="1211000" />
       <workItem from="1654449438196" duration="3204000" />
+      <workItem from="1654502138496" duration="1102000" />
     </task>
     <task id="LOCAL-00001" summary="bruh">
       <created>1653394727669</created>
