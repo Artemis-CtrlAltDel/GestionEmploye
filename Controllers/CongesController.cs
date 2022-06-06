@@ -41,10 +41,12 @@ namespace GestionEmploye.Controllers
             if(EmployeId == null) return Problem();
             var employe = _context.Employe.Find(EmployeId);
             if(employe.CongeRemaining < conge.Duration){
+                ViewData["Employee"] = await _context.Employe.FirstOrDefaultAsync(i => i.Id == HttpContext.Session.GetInt32("EmployeId"));
+                ViewData["Conges"] = await _context.Conge.Where(m => m.EmployeId == HttpContext.Session.GetInt32("EmployeId")).ToListAsync();
                 ModelState.AddModelError("Duration",$"Vous avez {employe.CongeRemaining} jours restants");
                 return View("Index");
             }
-
+            
             conge.EmployeId = (int)EmployeId;
             if (ModelState.IsValid)
             {
