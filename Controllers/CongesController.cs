@@ -91,6 +91,8 @@ namespace GestionEmploye.Controllers
             }
             if (conge != null)
             {
+                var emp = await _context.Employe.FindAsync(conge.EmployeId);
+                emp.CongeRemaining -= conge.Duration;
                 _context.Conge.Remove(conge);
             }
             
