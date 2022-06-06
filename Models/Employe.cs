@@ -17,6 +17,7 @@ namespace GestionEmploye.Models
         [Range(0,30)]
         public int CongeRemaining { get; set; }
 
+        [Range(1000,50000,ErrorMessage = "Le salaire doit etre entre 1,000 et 50,000 DHs")]
         [Display(Name = "Salaire")]
         [RegularExpression("\\d+", ErrorMessage = "Le salaire doit etre numerique")]
         [Required(ErrorMessage = "Le champ Salaire doit etre remplis")]

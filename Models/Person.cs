@@ -18,6 +18,7 @@ namespace GestionEmploye.Models
         
         [Required(ErrorMessage = "Le champ Mot de passe doit etre remplis")]
         [DataType(DataType.Password)]
+        [MinLength(6,ErrorMessage = "La longueur minimale pour un password est 6 caractères")]
         public string Password { get; set; }
 
         public int? EmployeId { get; set; }
