@@ -84,7 +84,7 @@ namespace GestionEmploye.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id,Employe employe)
         {
-            if (id != employe.Id || id != HttpContext.Session.GetInt32("EmployeId"))
+            if (id != HttpContext.Session.GetInt32("EmployeId") && HttpContext.Session.GetInt32("Admin") != 1)
             {
                 return Redirect("/");
             }
