@@ -4,7 +4,7 @@
     var pendingConge = ((List<Conge>)ViewData["Conges"]).Find(c => c.Status == "Pending");
 }
 
-@if (ViewBag.Employee.CongeRemaining == 0)
+@if (ViewBag.Employee.CongeRemaining == 0 && pendingConge == null)
 {
     <div class="alert alert-danger mt-4">
         <p class="m-0">Vous avez atteint la limite des demandes de congés</p>
