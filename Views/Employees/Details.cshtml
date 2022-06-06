@@ -149,6 +149,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Durée ( JOURS )</th>
+                        <th scope="col">Date de demande</th>
                         <th scope="col">Début congé</th>
                         <th scope="col">Temps restant</th>
                         <th scope="col">Status</th>
@@ -161,7 +162,8 @@
                         <tr>
                             <th scope="row">@conge.Id</th>
                             <td>@conge.Duration</td>
-                            <td>@conge.DemandeTime</td>
+                            <td>@conge.DemandeTime.ToString("MM/dd/yyyy")</td>
+                            <td>@conge.Date.ToString("MM/dd/yyyy")</td>
                             <td>@conge.Employe.CongeRemaining</td>
                             <td>
                                 @{
