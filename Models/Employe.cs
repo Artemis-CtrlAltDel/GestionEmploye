@@ -14,7 +14,6 @@ namespace GestionEmploye.Models
         public Person Person {get; set;}
 
         
-        [DefaultValue(30)]
         [Range(0,30)]
         public int CongeRemaining { get; set; }
 

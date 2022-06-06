@@ -11,8 +11,9 @@ public class AppContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Employe>()
-        .HasOne(b => b.Person)
+        var employe = modelBuilder.Entity<Employe>();
+        employe.Property(i=>i.CongeRemaining).HasDefaultValue(30);
+        employe.HasOne(b => b.Person)
         .WithOne(i => i.Employe)
         .HasForeignKey<Person>(b => b.EmployeId)
         .OnDelete(DeleteBehavior.Cascade);
